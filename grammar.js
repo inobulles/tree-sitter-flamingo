@@ -9,10 +9,7 @@ module.exports = grammar({
 	rules: {
 		source_file: $ => repeat($.statement),
 
-		statement: $ => choice(
-			$.expression,
-			$.print,
-		),
+		statement: $ => choice($.expression, $.print),
 
 		print: $ => seq("print", $.expression),
 
