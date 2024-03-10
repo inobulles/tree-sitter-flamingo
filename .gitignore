@@ -1,0 +1,25 @@
+# Rust artifacts
+
+Cargo.lock
+target
+
+# Node artifacts
+
+build
+node_modules
+
+# C artifacts
+
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.pc
+
+# grammar volatiles
+
+dsl.d.ts
+*.wasm
+*.obj
+*.o

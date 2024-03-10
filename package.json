@@ -1,0 +1,42 @@
+{
+	"name": "tree-sitter-flamingo",
+	"version": "1.0.0",
+	"description": "Flamingo Tree Sitter",
+	"main": "bindings/node",
+	"scripts": {
+		"format": "prettier --write .",
+		"generate": "tree-sitter generate",
+		"test": "tree-sitter test"
+	},
+	"author": "Aymeric Wibo",
+	"license": "ASL",
+	"devDependencies": {
+		"prettier": "^3.2.5"
+	},
+	"prettier": {
+		"printWidth": 120,
+		"useTabs": true,
+		"semi": false,
+		"singleQuote": false,
+		"quoteProps": "as-needed",
+		"jsxSingleQuote": false,
+		"trailingComma": "all",
+		"bracketSpacing": false,
+		"bracketSameLine": false,
+		"arrowParens": "avoid",
+		"proseWrap": "never",
+		"endOfLine": "lf"
+	},
+	"tree-sitter": [
+		{
+			"scope": "source.fl",
+			"file-types": [
+				"fl"
+			],
+			"first-line-regex": "#!.*\\bflamingo$",
+			"highlights": [
+				"queries/highlights.scm"
+			]
+		}
+	]
+}

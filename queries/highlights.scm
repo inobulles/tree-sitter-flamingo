@@ -1,0 +1,2 @@
+"print" @keyword
+(string) @string
