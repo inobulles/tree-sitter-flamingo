@@ -11,9 +11,13 @@ module.exports = grammar({
 
 		statement: $ => choice($.expression, $.print),
 
-		print: $ => seq("print", $.expression),
+		print: $ => seq(
+			"print",
+			field("msg", $.expression),
+		),
 
-		expression: $ => choice($.identifier, $.number, $.string),
+		expression: $ => choice($.identifier, $.literal),
+		literal: $ => choice($.number, $.string),
 
 		block: $ => seq("{", repeat($.statement), "}"),
 
