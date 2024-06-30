@@ -9,7 +9,9 @@ Numbers
 (source_file
 	(statement
 		(expression
-			(number)
+			(literal
+				(number)
+			)
 		)
 	)
 )

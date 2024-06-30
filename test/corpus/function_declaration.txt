@@ -1,0 +1,108 @@
+===
+Function declaration
+===
+
+fn function_without_params {
+	print "Hello world!"
+}
+
+fn function_without_params_but_with_parentheses() {
+	print "Hello world!"
+}
+
+fn function_with_one_param(a) {
+	print "Hello world!"
+}
+
+fn function_with_multiple_params(a, b, c) {
+	print "Hello world!"
+}
+
+---
+
+(source_file
+	(statement
+		(function_declaration
+			name: (identifier)
+			body: (statement
+				(block
+					body: (statement
+						(print
+							msg: (expression
+								(literal
+									(string)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(function_declaration
+			name: (identifier)
+			body: (statement
+				(block
+					body: (statement
+						(print
+							msg: (expression
+								(literal
+									(string)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(function_declaration
+			name: (identifier)
+			params: (param_list
+				(identifier)
+			)
+			body: (statement
+				(block
+					body: (statement
+						(print
+							msg: (expression
+								(literal
+									(string)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(function_declaration
+			name: (identifier)
+			params: (param_list
+				(identifier)
+				(param_list
+					(identifier)
+					(param_list
+						(identifier)
+					)
+				)
+			)
+			body: (statement
+				(block
+					body: (statement
+						(print
+							msg: (expression
+								(literal
+									(string)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)

@@ -9,8 +9,10 @@ print "Hello world!"
 (source_file
 	(statement
 		(print
-			(expression
-				(string)
+			msg: (expression
+				(literal
+					(string)
+				)
 			)
 		)
 	)
