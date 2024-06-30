@@ -17,6 +17,14 @@ Run:
 pnpm generate
 ```
 
+## Testing
+
+Run:
+
+```console
+pnpm test
+```
+
 ## Formatting
 
 Run:
