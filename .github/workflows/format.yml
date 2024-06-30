@@ -1,0 +1,20 @@
+name: Check formatting
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+      - name: Check formatting
+        run: |
+          prettier --check .
