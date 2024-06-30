@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  test:
+  check_formatting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,6 +15,9 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 8
+      - name: Install dependencies
+        run: |
+          pnpm install
       - name: Check formatting
         run: |
           prettier --check .
