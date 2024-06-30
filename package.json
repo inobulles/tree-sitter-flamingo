@@ -5,6 +5,7 @@
 	"main": "bindings/node",
 	"scripts": {
 		"format": "prettier --write .",
+		"format:check": "prettier --check .",
 		"generate": "tree-sitter generate",
 		"test": "tree-sitter test"
 	},

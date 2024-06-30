@@ -20,4 +20,4 @@ jobs:
           pnpm install
       - name: Check formatting
         run: |
-          prettier --check .
+          pnpm run format:check
