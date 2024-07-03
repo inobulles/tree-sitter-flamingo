@@ -10,7 +10,9 @@ print "Hello world!" # This is a regular comment on the same line as a statement
 
 (source_file
 	(comment)
-	(doc_comment)
+	(doc_comment
+		(doc_comment_content)
+	)
 	(statement
 		(print
 			msg: (expression

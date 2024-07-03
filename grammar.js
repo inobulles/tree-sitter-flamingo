@@ -8,7 +8,8 @@ module.exports = grammar({
 		source_file: $ => repeat(choice($.statement, $.doc_comment, $.comment)),
 
 		comment: _ => token(seq("#", /[^\#].*/)),
-		doc_comment: _ => token(seq("##", /.*/)),
+		doc_comment: $ => seq("##", $.doc_comment_content),
+		doc_comment_content: _ => /.*/,
 
 		statement: $ =>
 			choice($.block, $.expression, $.print, $.assert, $.assignment, $.import, $.function_declaration, $.class_declaration),
