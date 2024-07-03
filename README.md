@@ -25,6 +25,12 @@ Run:
 pnpm test
 ```
 
+To quickly test highlighting of a single file, run:
+
+```console
+tree-sitter highlight hello_world.fl
+```
+
 ## Formatting
 
 Run:
