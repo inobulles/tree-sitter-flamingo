@@ -24,10 +24,14 @@ module.exports = grammar({
 
 		import: $ => seq("import", field("path", $.identifier)),
 
+		qualifier: _ => choice("extern", "pure"),
+		qualifier_list: $ => choice($.qualifier, seq($.qualifier, $.qualifier_list)),
+
 		function_declaration: $ =>
 			prec(
 				100,
 				seq(
+					field("qualifiers", optional($.qualifier_list)),
 					"fn",
 					field("name", $.identifier),
 					optional(seq("(", optional(field("params", $.param_list)), ")")),
