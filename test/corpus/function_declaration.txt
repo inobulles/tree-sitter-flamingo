@@ -61,7 +61,9 @@ fn function_with_multiple_params(a, b, c) {
 		(function_declaration
 			name: (identifier)
 			params: (param_list
-				(identifier)
+				(param
+					(identifier)
+				)
 			)
 			body: (statement
 				(block
@@ -82,11 +84,17 @@ fn function_with_multiple_params(a, b, c) {
 		(function_declaration
 			name: (identifier)
 			params: (param_list
-				(identifier)
-				(param_list
+				(param
 					(identifier)
-					(param_list
+				)
+				(param_list
+					(param
 						(identifier)
+					)
+					(param_list
+						(param
+							(identifier)
+						)
 					)
 				)
 			)
