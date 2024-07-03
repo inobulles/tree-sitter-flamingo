@@ -1,0 +1,24 @@
+===
+Comments
+===
+
+# This is a regular comment.
+## This is a documentation comment.
+print "Hello world!" # This is a regular comment on the same line as a statement.
+
+---
+
+(source_file
+	(comment)
+	(doc_comment)
+	(statement
+		(print
+			msg: (expression
+				(literal
+					(string)
+				)
+			)
+		)
+	)
+	(comment)
+)
