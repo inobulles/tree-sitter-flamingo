@@ -7,9 +7,15 @@ module.exports = grammar({
 	rules: {
 		source_file: $ => repeat(choice($.statement, $.doc_comment, $.comment)),
 
-		comment: _ => token(seq("#", /[^\#].*/)),
+		comment: _ => token(seq("#", /[^#].*/)),
 		doc_comment: $ => seq("##", $.doc_comment_content),
 		doc_comment_content: _ => /.*/,
+
+		// TODO This is a bit of a trick: https://github.com/tree-sitter/tree-sitter/discussions/1173
+		// Ideally, we'd use an external scanner to do this so we can make the closing delimiter optional.
+
+		// doc_comment: $ => seq("/*", $.doc_comment_content, "/"),
+		// doc_comment_content: _ => /[^*]*\*+([^/*][^*]*\*+)*/,
 
 		statement: $ =>
 			choice($.block, $.expression, $.print, $.assert, $.assignment, $.import, $.function_declaration, $.class_declaration),
