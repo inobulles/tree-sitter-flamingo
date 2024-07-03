@@ -1,441 +1,449 @@
 [
-	{
-		"type": "access_list",
-		"named": true,
-		"fields": {
-			"accessed": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "expression",
-						"named": true
-					}
-				]
-			},
-			"accessor": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "identifier",
-						"named": true
-					}
-				]
-			}
-		}
-	},
-	{
-		"type": "argument_list",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "argument_list",
-					"named": true
-				},
-				{
-					"type": "expression",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "assignment",
-		"named": true,
-		"fields": {
-			"left": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "identifier",
-						"named": true
-					}
-				]
-			},
-			"right": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "expression",
-						"named": true
-					}
-				]
-			}
-		}
-	},
-	{
-		"type": "block",
-		"named": true,
-		"fields": {
-			"body": {
-				"multiple": true,
-				"required": false,
-				"types": [
-					{
-						"type": "statement",
-						"named": true
-					}
-				]
-			}
-		}
-	},
-	{
-		"type": "bool",
-		"named": true,
-		"fields": {}
-	},
-	{
-		"type": "call",
-		"named": true,
-		"fields": {
-			"args": {
-				"multiple": false,
-				"required": false,
-				"types": [
-					{
-						"type": "argument_list",
-						"named": true
-					}
-				]
-			},
-			"callable": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "expression",
-						"named": true
-					}
-				]
-			}
-		}
-	},
-	{
-		"type": "class_declaration",
-		"named": true,
-		"fields": {
-			"body": {
-				"multiple": true,
-				"required": false,
-				"types": [
-					{
-						"type": "statement",
-						"named": true
-					}
-				]
-			},
-			"name": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "identifier",
-						"named": true
-					}
-				]
-			}
-		}
-	},
-	{
-		"type": "expression",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": false,
-			"required": true,
-			"types": [
-				{
-					"type": "access_list",
-					"named": true
-				},
-				{
-					"type": "call",
-					"named": true
-				},
-				{
-					"type": "identifier",
-					"named": true
-				},
-				{
-					"type": "literal",
-					"named": true
-				},
-				{
-					"type": "parenthesized_expression",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "function_declaration",
-		"named": true,
-		"fields": {
-			"body": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "statement",
-						"named": true
-					}
-				]
-			},
-			"name": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "identifier",
-						"named": true
-					}
-				]
-			},
-			"params": {
-				"multiple": false,
-				"required": false,
-				"types": [
-					{
-						"type": "param_list",
-						"named": true
-					}
-				]
-			}
-		}
-	},
-	{
-		"type": "import",
-		"named": true,
-		"fields": {
-			"path": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "identifier",
-						"named": true
-					}
-				]
-			}
-		}
-	},
-	{
-		"type": "literal",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": false,
-			"required": true,
-			"types": [
-				{
-					"type": "bool",
-					"named": true
-				},
-				{
-					"type": "number",
-					"named": true
-				},
-				{
-					"type": "string",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "param_list",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "identifier",
-					"named": true
-				},
-				{
-					"type": "param_list",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "parenthesized_expression",
-		"named": true,
-		"fields": {
-			"expression": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "expression",
-						"named": true
-					}
-				]
-			}
-		}
-	},
-	{
-		"type": "print",
-		"named": true,
-		"fields": {
-			"msg": {
-				"multiple": false,
-				"required": true,
-				"types": [
-					{
-						"type": "expression",
-						"named": true
-					}
-				]
-			}
-		}
-	},
-	{
-		"type": "source_file",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": false,
-			"types": [
-				{
-					"type": "comment",
-					"named": true
-				},
-				{
-					"type": "statement",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "statement",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": false,
-			"required": true,
-			"types": [
-				{
-					"type": "assignment",
-					"named": true
-				},
-				{
-					"type": "block",
-					"named": true
-				},
-				{
-					"type": "class_declaration",
-					"named": true
-				},
-				{
-					"type": "expression",
-					"named": true
-				},
-				{
-					"type": "function_declaration",
-					"named": true
-				},
-				{
-					"type": "import",
-					"named": true
-				},
-				{
-					"type": "print",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "!",
-		"named": false
-	},
-	{
-		"type": "(",
-		"named": false
-	},
-	{
-		"type": ")",
-		"named": false
-	},
-	{
-		"type": ",",
-		"named": false
-	},
-	{
-		"type": "-",
-		"named": false
-	},
-	{
-		"type": ".",
-		"named": false
-	},
-	{
-		"type": "=",
-		"named": false
-	},
-	{
-		"type": "class",
-		"named": false
-	},
-	{
-		"type": "comment",
-		"named": true
-	},
-	{
-		"type": "error",
-		"named": false
-	},
-	{
-		"type": "false",
-		"named": false
-	},
-	{
-		"type": "fn",
-		"named": false
-	},
-	{
-		"type": "identifier",
-		"named": true
-	},
-	{
-		"type": "import",
-		"named": false
-	},
-	{
-		"type": "number",
-		"named": true
-	},
-	{
-		"type": "print",
-		"named": false
-	},
-	{
-		"type": "string",
-		"named": true
-	},
-	{
-		"type": "true",
-		"named": false
-	},
-	{
-		"type": "{",
-		"named": false
-	},
-	{
-		"type": "}",
-		"named": false
-	}
+  {
+    "type": "access_list",
+    "named": true,
+    "fields": {
+      "accessed": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "accessor": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "argument_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assignment",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "block",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "statement",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "bool",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "call",
+    "named": true,
+    "fields": {
+      "args": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
+      "callable": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "class_declaration",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "access_list",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_declaration",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "params": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "param_list",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "import",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "param_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "param_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parenthesized_expression",
+    "named": true,
+    "fields": {
+      "expression": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "print",
+    "named": true,
+    "fields": {
+      "msg": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "doc_comment",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "class_declaration",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "function_declaration",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "print",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "class",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "doc_comment",
+    "named": true
+  },
+  {
+    "type": "error",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "fn",
+    "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "import",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "print",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
 ]
