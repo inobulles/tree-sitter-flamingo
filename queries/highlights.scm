@@ -2,6 +2,7 @@
 ; v. 1.0. Copyright (c) 2024 Aymeric Wibo
 
 (comment) @comment
+(doc_comment) @comment.documentation
 
 ; function calls
 
