@@ -18,7 +18,16 @@ module.exports = grammar({
 		// doc_comment_content: _ => /[^*]*\*+([^/*][^*]*\*+)*/,
 
 		statement: $ =>
-			choice($.block, $.expression, $.print, $.assert, $.assignment, $.import, $.function_declaration, $.class_declaration),
+			choice(
+				$.block,
+				$.expression,
+				$.print,
+				$.assert,
+				$.assignment,
+				$.import,
+				$.function_declaration,
+				$.class_declaration,
+			),
 
 		block: $ => seq("{", field("body", repeat($.statement)), "}"),
 
@@ -42,7 +51,15 @@ module.exports = grammar({
 		function_expression: $ =>
 			seq("fn", optional(seq("(", optional(field("params", $.param_list)), ")")), field("body", $.statement)),
 
-		class_declaration: $ => seq("class", field("name", $.identifier), "{", field("body", repeat($.statement)), "}"),
+		class_declaration: $ =>
+			seq(
+				field("qualifiers", optional($.qualifier_list)),
+				"class",
+				field("name", $.identifier),
+				"{",
+				field("body", repeat($.statement)),
+				"}",
+			),
 
 		print: $ => seq("print", field("msg", $.expression)),
 		assert: $ => seq("assert", field("test", $.expression)),
