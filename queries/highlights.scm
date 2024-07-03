@@ -44,6 +44,14 @@
 	"import"
 ] @keyword
 
+; types
+
+(type_name) @type
+[
+	(primitive_type)
+	(template_type)
+] @type.builtin
+
 ; literals
 
 (string) @string
