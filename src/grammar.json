@@ -132,12 +132,63 @@
         }
       ]
     },
+    "qualifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "extern"
+        },
+        {
+          "type": "STRING",
+          "value": "pure"
+        }
+      ]
+    },
+    "qualifier_list": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "qualifier"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "qualifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "qualifier_list"
+            }
+          ]
+        }
+      ]
+    },
     "function_declaration": {
       "type": "PREC",
       "value": 100,
       "content": {
         "type": "SEQ",
         "members": [
+          {
+            "type": "FIELD",
+            "name": "qualifiers",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "qualifier_list"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          },
           {
             "type": "STRING",
             "value": "fn"
@@ -255,6 +306,22 @@
     "class_declaration": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "FIELD",
+          "name": "qualifiers",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "qualifier_list"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
         {
           "type": "STRING",
           "value": "class"

@@ -156,6 +156,16 @@
             "named": true
           }
         ]
+      },
+      "qualifiers": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "qualifier_list",
+            "named": true
+          }
+        ]
       }
     }
   },
@@ -235,6 +245,16 @@
         "types": [
           {
             "type": "param_list",
+            "named": true
+          }
+        ]
+      },
+      "qualifiers": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "qualifier_list",
             "named": true
           }
         ]
@@ -329,6 +349,30 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "qualifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "qualifier_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "qualifier",
+          "named": true
+        },
+        {
+          "type": "qualifier_list",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -450,6 +494,10 @@
     "named": false
   },
   {
+    "type": "extern",
+    "named": false
+  },
+  {
     "type": "false",
     "named": false
   },
@@ -471,6 +519,10 @@
   },
   {
     "type": "print",
+    "named": false
+  },
+  {
+    "type": "pure",
     "named": false
   },
   {

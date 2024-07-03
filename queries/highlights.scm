@@ -37,6 +37,8 @@
 ; keywords
 
 [
+	"extern"
+	"pure"
 	"fn"
 	"class"
 	"import"
