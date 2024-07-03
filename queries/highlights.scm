@@ -14,6 +14,7 @@
 
 [
 	"print"
+	"assert"
 ] @function.builtin
 
 ; identifiers
@@ -34,7 +35,6 @@
 ; keywords
 
 [
-	"print"
 	"fn"
 	"class"
 	"import"

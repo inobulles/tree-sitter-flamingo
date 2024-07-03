@@ -11,7 +11,7 @@ module.exports = grammar({
 		doc_comment: _ => token(seq("##", /.*/)),
 
 		statement: $ =>
-			choice($.block, $.expression, $.print, $.assignment, $.import, $.function_declaration, $.class_declaration),
+			choice($.block, $.expression, $.print, $.assert, $.assignment, $.import, $.function_declaration, $.class_declaration),
 
 		block: $ => seq("{", field("body", repeat($.statement)), "}"),
 
@@ -34,6 +34,7 @@ module.exports = grammar({
 		class_declaration: $ => seq("class", field("name", $.identifier), "{", field("body", repeat($.statement)), "}"),
 
 		print: $ => seq("print", field("msg", $.expression)),
+		assert: $ => seq("assert", field("test", $.expression)),
 
 		expression: $ => prec(-1, choice($.identifier, $.literal, $.call, $.access_list, $.parenthesized_expression)),
 

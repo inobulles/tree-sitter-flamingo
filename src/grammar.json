@@ -38,20 +38,21 @@
       }
     },
     "doc_comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "##"
-          },
-          {
-            "type": "PATTERN",
-            "value": ".*"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "##"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "doc_comment_content"
+        }
+      ]
+    },
+    "doc_comment_content": {
+      "type": "PATTERN",
+      "value": ".*"
     },
     "statement": {
       "type": "CHOICE",
@@ -67,6 +68,10 @@
         {
           "type": "SYMBOL",
           "name": "print"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assert"
         },
         {
           "type": "SYMBOL",
@@ -293,6 +298,23 @@
         {
           "type": "FIELD",
           "name": "msg",
+          "content": {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        }
+      ]
+    },
+    "assert": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "assert"
+        },
+        {
+          "type": "FIELD",
+          "name": "test",
           "content": {
             "type": "SYMBOL",
             "name": "expression"
