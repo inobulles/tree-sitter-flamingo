@@ -72,7 +72,12 @@ module.exports = grammar({
 
 		call: $ => prec(99, seq(field("callable", $.expression), "(", field("args", optional($.argument_list)), ")")),
 
-		param_list: $ => choice($.identifier, seq($.identifier, ",", $.param_list)),
+		template_type: _ => choice("vec"),
+		type_name: $ => choice($.identifier, $.template_type),
+		type: $ => choice($.type_name, seq($.template_type, "<", $.type, ">")),
+
+		param: $ => choice($.identifier, seq($.identifier, ":", $.type)),
+		param_list: $ => choice($.param, seq($.param, ",", $.param_list)),
 
 		argument_list: $ => choice($.expression, seq($.expression, ",", $.argument_list)),
 
@@ -82,7 +87,8 @@ module.exports = grammar({
 
 		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
 
-		identifier: _ => /[_A-z][_A-z0-9]*/,
+		primitive_type: _ => choice("any", "int", "str", "bool", "void"),
+		identifier: $ => choice(/[_A-z][_A-z0-9]*/, $.primitive_type),
 		number: _ => /\d+/,
 		string: _ => /"([^"\\]|\\.)*"/,
 		bool: _ => choice("true", "false", "error"),
