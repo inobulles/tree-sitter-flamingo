@@ -1,0 +1,52 @@
+# This Source Form is subject to the terms of the AQUA Software License,
+# v. 1.0. Copyright (c) 2024 Aymeric Wibo
+
+import std
+import bob
+
+# C compilation.
+
+cc = CC()
+
+cc.add_opt("-Isrc")
+cc.add_opt("-fPIC")
+cc.add_opt("-std=c99")
+cc.add_opt("-Wall")
+cc.add_opt("-Wextra")
+cc.add_opt("-Werror")
+
+lib_src = Fs.list("src/lib")
+	.where(fn(path) path.ends_with(".c"))
+
+cmd_src = Fs.list("src/cmd")
+	.where(fn(path) path.ends_with(".c"))
+
+src = lib_src ++ cmd_src
+src.map cc.compile
+
+# Create static & dynamic libraries and command-line frontend executable.
+
+linker = Linker()
+
+archive_path = linker.static(lib_src)
+dyn_lib_path = linker.dynamic(lib_src)
+cmd_path = linker.link(cmd_src, ["iar"])
+
+# Add header as a resource.
+
+header_path = Res.add("src/iar.h")
+
+# How to run the command-line frontend?
+
+fn run(args) {
+	return Sys.exec(cmd_path, args)
+}
+
+# Installation map.
+
+install = {
+	cmd_path:     "bin/iar",
+	archive_path: "lib/libiar.a",
+	dyn_lib_path: "lib/libiar.so",
+	header_path:  "include/iar.h",
+}
