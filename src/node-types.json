@@ -215,6 +215,29 @@
 				{
 					"type": "parenthesized_expression",
 					"named": true
+				},
+				{
+					"type": "vec",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "expression_list",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "expression",
+					"named": true
+				},
+				{
+					"type": "expression_list",
+					"named": true
 				}
 			]
 		}
@@ -570,6 +593,21 @@
 		}
 	},
 	{
+		"type": "vec",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": false,
+			"required": false,
+			"types": [
+				{
+					"type": "expression_list",
+					"named": true
+				}
+			]
+		}
+	},
+	{
 		"type": "!",
 		"named": false
 	},
@@ -619,6 +657,14 @@
 	},
 	{
 		"type": ">",
+		"named": false
+	},
+	{
+		"type": "[",
+		"named": false
+	},
+	{
+		"type": "]",
 		"named": false
 	},
 	{

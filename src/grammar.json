@@ -431,6 +431,10 @@
 					{
 						"type": "SYMBOL",
 						"name": "parenthesized_expression"
+					},
+					{
+						"type": "SYMBOL",
+						"name": "vec"
 					}
 				]
 			}
@@ -810,6 +814,57 @@
 							"name": "expression"
 						}
 					]
+				}
+			]
+		},
+		"expression_list": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "expression"
+				},
+				{
+					"type": "SEQ",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "expression"
+						},
+						{
+							"type": "STRING",
+							"value": ","
+						},
+						{
+							"type": "SYMBOL",
+							"name": "expression_list"
+						}
+					]
+				}
+			]
+		},
+		"vec": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "["
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "expression_list"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				},
+				{
+					"type": "STRING",
+					"value": "]"
 				}
 			]
 		},
