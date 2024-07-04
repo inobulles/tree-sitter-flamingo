@@ -92,6 +92,10 @@
         {
           "type": "SYMBOL",
           "name": "class_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "return"
         }
       ]
     },
@@ -743,6 +747,31 @@
           }
         }
       ]
+    },
+    "return": {
+      "type": "PREC_LEFT",
+      "value": 100,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "return"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "unary_expression": {
       "type": "CHOICE",

@@ -42,6 +42,7 @@
 	"fn"
 	"class"
 	"import"
+	"return"
 ] @keyword
 
 ; types

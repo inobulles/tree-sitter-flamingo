@@ -28,6 +28,7 @@ module.exports = grammar({
 				$.import,
 				$.function_declaration,
 				$.class_declaration,
+				$.return,
 			),
 
 		block: $ => seq("{", field("body", repeat($.statement)), "}"),
@@ -86,6 +87,8 @@ module.exports = grammar({
 
 		var_declaration: $ => seq($.identifier, ":", $.type),
 		assignment: $ => seq(field("left", choice($.var_declaration, $.identifier)), "=", field("right", $.expression)),
+
+		return: $ => prec.left(100, seq("return", optional($.expression))),
 
 		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
 
