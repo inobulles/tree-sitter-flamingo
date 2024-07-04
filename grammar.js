@@ -67,7 +67,7 @@ module.exports = grammar({
 		assert: $ => seq("assert", field("test", $.expression)),
 
 		expression: $ =>
-			prec(-1, choice($.identifier, $.literal, $.call, $.access_list, $.parenthesized_expression, $.vec)),
+			prec(-1, choice($.identifier, $.literal, $.call, $.access_list, $.parenthesized_expression, $.vec, $.map)),
 
 		parenthesized_expression: $ => seq("(", field("expression", $.expression), ")"),
 
@@ -95,6 +95,10 @@ module.exports = grammar({
 
 		expression_list: $ => choice($.expression, seq($.expression, ",", $.expression_list)),
 		vec: $ => seq("[", optional($.expression_list), "]"),
+
+		map_item: $ => seq(field("key", $.expression), ":", field("value", $.expression)),
+		map_item_list: $ => choice($.map_item, seq($.map_item, ",", $.map_item_list)),
+		map: $ => prec(-1, seq("{", optional($.map_item_list), "}")),
 
 		overloadable_operator: _ => choice("++", "==="),
 		primitive_type: _ => choice("any", "int", "str", "bool", "void"),
