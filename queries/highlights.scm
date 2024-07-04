@@ -49,7 +49,8 @@
 (type_name) @type
 [
 	(primitive_type)
-	(template_type)
+	"vec"
+	"map"
 ] @type.builtin
 
 ; literals
