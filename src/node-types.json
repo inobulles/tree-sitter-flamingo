@@ -91,6 +91,32 @@
 		}
 	},
 	{
+		"type": "binary_expression",
+		"named": true,
+		"fields": {
+			"left": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			},
+			"operator": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "overloadable_operator",
+						"named": true
+					}
+				]
+			}
+		}
+	},
+	{
 		"type": "block",
 		"named": true,
 		"fields": {
@@ -198,6 +224,10 @@
 			"types": [
 				{
 					"type": "access_list",
+					"named": true
+				},
+				{
+					"type": "binary_expression",
 					"named": true
 				},
 				{

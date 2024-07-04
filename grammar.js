@@ -67,7 +67,19 @@ module.exports = grammar({
 		assert: $ => seq("assert", field("test", $.expression)),
 
 		expression: $ =>
-			prec(-1, choice($.identifier, $.literal, $.call, $.access_list, $.parenthesized_expression, $.vec, $.map)),
+			prec(
+				-1,
+				choice(
+					$.identifier,
+					$.literal,
+					$.call,
+					$.access_list,
+					$.parenthesized_expression,
+					$.vec,
+					$.map,
+					$.binary_expression,
+				),
+			),
 
 		parenthesized_expression: $ => seq("(", field("expression", $.expression), ")"),
 
@@ -92,6 +104,10 @@ module.exports = grammar({
 		return: $ => prec.left(100, seq("return", optional($.expression))),
 
 		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
+
+		// TODO Precedence. === has a lower precedence than ++. Currently I think it's just left-associative. How do I define precedence levels instead?
+		binary_expression: $ =>
+			seq(field("left", $.expression), field("operator", $.overloadable_operator, field("right", $.expression))),
 
 		expression_list: $ => choice($.expression, seq($.expression, ",", $.expression_list)),
 		vec: $ => seq("[", optional($.expression_list), "]"),
