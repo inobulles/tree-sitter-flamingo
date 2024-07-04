@@ -23,6 +23,10 @@
 
 (identifier) @variable
 
+; operators
+
+(overloadable_operator) @operator
+
 ; declarations
 
 (function_declaration name:
