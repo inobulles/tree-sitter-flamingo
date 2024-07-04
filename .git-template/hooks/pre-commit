@@ -22,6 +22,6 @@ fi
 
 git diff-index --check --cached $against --
 
-# Run `pnpm format` and fail if it fails.
+# Run `pnpm format:check` and fail if it fails.
 
-exec pnpm format
+exec pnpm format:check
