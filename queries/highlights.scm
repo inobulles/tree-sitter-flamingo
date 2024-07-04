@@ -25,7 +25,12 @@
 
 ; declarations
 
-(function_declaration name: (identifier) @function)
+(function_declaration name:
+	[
+		(identifier)
+		(overloadable_operator)
+	] @function
+)
 (class_declaration name: (identifier) @function)
 
 ; operators
