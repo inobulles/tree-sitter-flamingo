@@ -72,9 +72,9 @@ module.exports = grammar({
 
 		call: $ => prec(99, seq(field("callable", $.expression), "(", field("args", optional($.argument_list)), ")")),
 
-		template_type: _ => choice("vec"),
-		type_name: $ => choice($.identifier, $.template_type),
-		type: $ => choice($.type_name, seq($.template_type, "<", $.type, ">")),
+		template_type: _ => choice("vec", "map"),
+		type_name: $ => choice($.identifier, "vec", "map"),
+		type: $ => choice($.type_name, seq("vec", "<", $.type, ">"), seq("map", "<", $.type, ",", $.type, ">")),
 
 		param: $ => choice($.identifier, seq($.identifier, ":", $.type)),
 		param_list: $ => choice($.param, seq($.param, ",", $.param_list)),
