@@ -66,7 +66,7 @@ module.exports = grammar({
 		print: $ => seq("print", field("msg", $.expression)),
 		assert: $ => seq("assert", field("test", $.expression)),
 
-		expression: $ => prec(-1, choice($.identifier, $.literal, $.call, $.access_list, $.parenthesized_expression)),
+		expression: $ => prec(-1, choice($.identifier, $.literal, $.call, $.access_list, $.parenthesized_expression, $.vec)),
 
 		parenthesized_expression: $ => seq("(", field("expression", $.expression), ")"),
 
