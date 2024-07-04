@@ -1,0 +1,27 @@
+#!/bin/sh
+set -e
+
+if git rev-parse --verify HEAD >/dev/null 2>&1; then
+	against=HEAD
+else
+	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904 # Initial commit; diff against an empty tree object.
+fi
+
+# Redirect output to stderr.
+
+exec 1>&2
+
+# Don't allow non-ASCII characters in filenames.
+
+if test $(git diff --cached --name-only --diff-filter=A -z $against | LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0; then
+	echo "Tryna add non-ASCII filenames"
+	exit 1
+fi
+
+# If there are terminating whitespaces, print the offending file names and fail.
+
+git diff-index --check --cached $against --
+
+# Run `pnpm format` and fail if it fails.
+
+exec pnpm format
