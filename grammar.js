@@ -44,7 +44,7 @@ module.exports = grammar({
 				seq(
 					field("qualifiers", optional($.qualifier_list)),
 					"fn",
-					field("name", $.identifier),
+					field("name", choice($.identifier, $.overloadable_operator)),
 					optional(seq("(", optional(field("params", $.param_list)), ")")),
 					field("body", $.statement),
 				),
@@ -92,6 +92,7 @@ module.exports = grammar({
 
 		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
 
+		overloadable_operator: _ => choice("++", "==="),
 		primitive_type: _ => choice("any", "int", "str", "bool", "void"),
 		identifier: $ => choice(/[_A-z][_A-z0-9]*/, $.primitive_type),
 		number: _ => /\d+/,

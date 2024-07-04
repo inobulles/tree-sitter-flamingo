@@ -240,6 +240,10 @@
           {
             "type": "identifier",
             "named": true
+          },
+          {
+            "type": "overloadable_operator",
+            "named": true
           }
         ]
       },
@@ -318,6 +322,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "overloadable_operator",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "param",
@@ -577,6 +586,10 @@
     "named": false
   },
   {
+    "type": "++",
+    "named": false
+  },
+  {
     "type": ",",
     "named": false
   },
@@ -598,6 +611,10 @@
   },
   {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": "===",
     "named": false
   },
   {
