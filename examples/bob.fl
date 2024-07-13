@@ -87,5 +87,19 @@ extern class Res {
 	## ```
 	## res_path = res.add("header.h")
 	## ```
-	extern pure fn add(path: str) -> str;
+	extern pure fn add(path: str) -> str
+}
+
+## Dependency class.
+extern class Dep {
+	## Depend on another project.
+	## For now, only projects containing a `build.fl` file at the root can be depended on.
+	## The `url` argument is meant to be given as a URL to the project's directory.
+	## Currently, only the `git://` and `file://` protocols are supported.
+	##
+	## ```fl
+	## dep.add("git://github.com/username/project")
+	## dep.add("file:///path/to/project")
+	## ```
+	extern fn add(url: str) -> void
 }
