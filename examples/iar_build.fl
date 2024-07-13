@@ -22,7 +22,7 @@ cmd_src = Fs.list("src/cmd")
 	.where(fn(path) path.ends_with(".c"))
 
 src = lib_src ++ cmd_src
-src.map cc.compile
+src.map(cc.compile)
 
 # Create static & dynamic libraries and command-line frontend executable.
 
