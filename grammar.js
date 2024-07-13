@@ -85,7 +85,7 @@ module.exports = grammar({
 
 		access_list: $ => seq(field("accessed", $.expression), ".", field("accessor", $.identifier)),
 
-		call: $ => prec(99, seq(field("callable", $.expression), "(", field("args", optional($.argument_list)), ")")),
+		call: $ => prec(99, seq(field("callable", $.expression), "(", field("args", optional($.arg_list)), ")")),
 
 		template_type: _ => choice("vec", "map"),
 		type_name: $ => choice($.identifier, "vec", "map"),
@@ -94,7 +94,7 @@ module.exports = grammar({
 		param: $ => choice($.identifier, seq($.identifier, ":", $.type)),
 		param_list: $ => choice($.param, seq($.param, ",", $.param_list)),
 
-		argument_list: $ => choice($.expression, seq($.expression, ",", $.argument_list)),
+		arg_list: $ => choice($.expression, seq($.expression, ",", $.arg_list)),
 
 		literal: $ => choice($.number, $.string, $.bool),
 
