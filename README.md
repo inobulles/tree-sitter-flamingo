@@ -1,6 +1,6 @@
-# Flamingo: Tree Sitter
+# Flamingo: Tree-sitter
 
-## Installing Tree Sitter
+## Installing Tree-sitter
 
 With `cargo`:
 

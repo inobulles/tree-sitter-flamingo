@@ -1,7 +1,7 @@
 {
 	"name": "tree-sitter-flamingo",
 	"version": "1.0.0",
-	"description": "Flamingo Tree Sitter",
+	"description": "Flamingo Tree-sitter",
 	"main": "bindings/node",
 	"scripts": {
 		"format": "prettier --write .",
