@@ -33,7 +33,7 @@ module.exports = grammar({
 
 		block: $ => seq("{", field("body", repeat($.statement)), "}"),
 
-		import: $ => seq("import", optional($.import_relative_dot), field("path", $.import_path)),
+		import: $ => seq("import", optional(field("relative", $.import_relative_dot)), field("path", $.import_path)),
 		import_path: $ => choice($.identifier, seq($.identifier, ".", $.import_path)),
 		import_relative_dot: _ => ".",
 

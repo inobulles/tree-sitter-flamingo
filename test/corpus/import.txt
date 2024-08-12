@@ -12,7 +12,7 @@ import nested.global.import
 (source_file
 	(statement
 		(import
-			(import_relative_dot)
+			relative: (import_relative_dot)
 			path: (import_path
 				(identifier)
 			)
@@ -27,7 +27,7 @@ import nested.global.import
 	)
 	(statement
 		(import
-			(import_relative_dot)
+			relative: (import_relative_dot)
 			path: (import_path
 				(identifier)
 				(import_path

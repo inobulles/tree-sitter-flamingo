@@ -12,7 +12,7 @@
 #define ALIAS_COUNT 0
 #define TOKEN_COUNT 41
 #define EXTERNAL_TOKEN_COUNT 0
-#define FIELD_COUNT 17
+#define FIELD_COUNT 18
 #define MAX_ALIAS_SEQUENCE_LENGTH 7
 #define PRODUCTION_ID_COUNT 23
 
@@ -595,9 +595,10 @@ enum ts_field_identifiers {
   field_params = 12,
   field_path = 13,
   field_qualifiers = 14,
-  field_right = 15,
-  field_test = 16,
-  field_value = 17,
+  field_relative = 15,
+  field_right = 16,
+  field_test = 17,
+  field_value = 18,
 };
 
 static const char * const ts_field_names[] = {
@@ -616,6 +617,7 @@ static const char * const ts_field_names[] = {
   [field_params] = "params",
   [field_path] = "path",
   [field_qualifiers] = "qualifiers",
+  [field_relative] = "relative",
   [field_right] = "right",
   [field_test] = "test",
   [field_value] = "value",
@@ -627,23 +629,23 @@ static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [3] = {.index = 2, .length = 1},
   [4] = {.index = 3, .length = 2},
   [5] = {.index = 5, .length = 1},
-  [6] = {.index = 6, .length = 1},
-  [7] = {.index = 7, .length = 2},
-  [8] = {.index = 9, .length = 1},
-  [9] = {.index = 10, .length = 2},
-  [10] = {.index = 12, .length = 1},
-  [11] = {.index = 13, .length = 2},
-  [12] = {.index = 15, .length = 2},
-  [13] = {.index = 17, .length = 1},
-  [14] = {.index = 18, .length = 3},
-  [15] = {.index = 21, .length = 2},
-  [16] = {.index = 23, .length = 2},
-  [17] = {.index = 25, .length = 2},
-  [18] = {.index = 27, .length = 2},
-  [19] = {.index = 29, .length = 3},
-  [20] = {.index = 32, .length = 3},
-  [21] = {.index = 35, .length = 3},
-  [22] = {.index = 38, .length = 4},
+  [6] = {.index = 6, .length = 2},
+  [7] = {.index = 8, .length = 2},
+  [8] = {.index = 10, .length = 1},
+  [9] = {.index = 11, .length = 2},
+  [10] = {.index = 13, .length = 1},
+  [11] = {.index = 14, .length = 2},
+  [12] = {.index = 16, .length = 2},
+  [13] = {.index = 18, .length = 1},
+  [14] = {.index = 19, .length = 3},
+  [15] = {.index = 22, .length = 2},
+  [16] = {.index = 24, .length = 2},
+  [17] = {.index = 26, .length = 2},
+  [18] = {.index = 28, .length = 2},
+  [19] = {.index = 30, .length = 3},
+  [20] = {.index = 33, .length = 3},
+  [21] = {.index = 36, .length = 3},
+  [22] = {.index = 39, .length = 4},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
@@ -660,53 +662,54 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_body, 1},
   [6] =
     {field_path, 2},
-  [7] =
+    {field_relative, 1},
+  [8] =
     {field_body, 2},
     {field_name, 1},
-  [9] =
-    {field_expression, 1},
   [10] =
+    {field_expression, 1},
+  [11] =
     {field_accessed, 0},
     {field_accessor, 2},
-  [12] =
-    {field_callable, 0},
   [13] =
+    {field_callable, 0},
+  [14] =
     {field_left, 0},
     {field_right, 2},
-  [15] =
+  [16] =
     {field_key, 0},
     {field_value, 2},
-  [17] =
-    {field_name, 1},
   [18] =
+    {field_name, 1},
+  [19] =
     {field_body, 3},
     {field_name, 2},
     {field_qualifiers, 0},
-  [21] =
+  [22] =
     {field_args, 2},
     {field_callable, 0},
-  [23] =
+  [24] =
     {field_body, 4},
     {field_name, 1},
-  [25] =
+  [26] =
     {field_body, 3},
     {field_name, 1},
-  [27] =
+  [28] =
     {field_name, 2},
     {field_qualifiers, 0},
-  [29] =
+  [30] =
     {field_body, 5},
     {field_name, 1},
     {field_params, 3},
-  [32] =
+  [33] =
     {field_body, 5},
     {field_name, 2},
     {field_qualifiers, 0},
-  [35] =
+  [36] =
     {field_body, 4},
     {field_name, 2},
     {field_qualifiers, 0},
-  [38] =
+  [39] =
     {field_body, 6},
     {field_name, 2},
     {field_params, 4},
