@@ -1,0 +1,55 @@
+===
+Imports
+===
+
+import .relative_import
+import global_import
+import .nested.relative.import
+import nested.global.import
+
+---
+
+(source_file
+	(statement
+		(import
+			(import_relative_dot)
+			path: (import_path
+				(identifier)
+			)
+		)
+	)
+	(statement
+		(import
+			path: (import_path
+				(identifier)
+			)
+		)
+	)
+	(statement
+		(import
+			(import_relative_dot)
+			path: (import_path
+				(identifier)
+				(import_path
+					(identifier)
+					(import_path
+						(identifier)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(import
+			path: (import_path
+				(identifier)
+				(import_path
+					(identifier)
+					(import_path
+						(identifier)
+					)
+				)
+			)
+		)
+	)
+)
