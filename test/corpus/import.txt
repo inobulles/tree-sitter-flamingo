@@ -14,14 +14,14 @@ import nested.global.import
 		(import
 			relative: (import_relative_dot)
 			path: (import_path
-				(identifier)
+				bit: (identifier)
 			)
 		)
 	)
 	(statement
 		(import
 			path: (import_path
-				(identifier)
+				bit: (identifier)
 			)
 		)
 	)
@@ -29,11 +29,11 @@ import nested.global.import
 		(import
 			relative: (import_relative_dot)
 			path: (import_path
-				(identifier)
-				(import_path
-					(identifier)
-					(import_path
-						(identifier)
+				bit: (identifier)
+				rest: (import_path
+					bit: (identifier)
+					rest: (import_path
+						bit: (identifier)
 					)
 				)
 			)
@@ -42,11 +42,11 @@ import nested.global.import
 	(statement
 		(import
 			path: (import_path
-				(identifier)
-				(import_path
-					(identifier)
-					(import_path
-						(identifier)
+				bit: (identifier)
+				rest: (import_path
+					bit: (identifier)
+					rest: (import_path
+						bit: (identifier)
 					)
 				)
 			)
