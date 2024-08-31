@@ -729,26 +729,37 @@
 			]
 		},
 		"arg_list": {
-			"type": "CHOICE",
+			"type": "SEQ",
 			"members": [
 				{
 					"type": "SYMBOL",
 					"name": "expression"
 				},
 				{
-					"type": "SEQ",
+					"type": "REPEAT",
+					"content": {
+						"type": "SEQ",
+						"members": [
+							{
+								"type": "STRING",
+								"value": ","
+							},
+							{
+								"type": "SYMBOL",
+								"name": "expression"
+							}
+						]
+					}
+				},
+				{
+					"type": "CHOICE",
 					"members": [
-						{
-							"type": "SYMBOL",
-							"name": "expression"
-						},
 						{
 							"type": "STRING",
 							"value": ","
 						},
 						{
-							"type": "SYMBOL",
-							"name": "arg_list"
+							"type": "BLANK"
 						}
 					]
 				}

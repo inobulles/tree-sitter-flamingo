@@ -34,10 +34,6 @@
 			"required": true,
 			"types": [
 				{
-					"type": "arg_list",
-					"named": true
-				},
-				{
 					"type": "expression",
 					"named": true
 				}

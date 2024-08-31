@@ -102,7 +102,7 @@ module.exports = grammar({
 		param: $ => choice($.identifier, seq($.identifier, ":", $.type)),
 		param_list: $ => comma_sep($.param),
 
-		arg_list: $ => choice($.expression, seq($.expression, ",", $.arg_list)),
+		arg_list: $ => comma_sep($.expression),
 
 		literal: $ => choice($.number, $.string, $.bool),
 
