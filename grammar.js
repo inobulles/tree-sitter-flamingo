@@ -1,6 +1,12 @@
 // This Source Form is subject to the terms of the AQUA Software License,
 // v. 1.0. Copyright (c) 2024 Aymeric Wibo
 
+// https://stackoverflow.com/questions/62661663/is-there-a-standard-treesitter-construct-for-parsing-an-arbitrary-length-list
+
+function comma_sep(rule) {
+	return seq(rule, repeat(seq(",", rule)), optional(","))
+}
+
 module.exports = grammar({
 	name: "flamingo",
 
@@ -94,7 +100,7 @@ module.exports = grammar({
 		type: $ => choice($.type_name, seq("vec", "<", $.type, ">"), seq("map", "<", $.type, ",", $.type, ">")),
 
 		param: $ => choice($.identifier, seq($.identifier, ":", $.type)),
-		param_list: $ => choice($.param, seq($.param, ",", $.param_list)),
+		param_list: $ => comma_sep($.param),
 
 		arg_list: $ => choice($.expression, seq($.expression, ",", $.arg_list)),
 

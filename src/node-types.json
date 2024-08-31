@@ -516,10 +516,6 @@
 				{
 					"type": "param",
 					"named": true
-				},
-				{
-					"type": "param_list",
-					"named": true
 				}
 			]
 		}
