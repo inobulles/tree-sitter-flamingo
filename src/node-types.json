@@ -168,8 +168,8 @@
 		"named": true,
 		"fields": {
 			"body": {
-				"multiple": true,
-				"required": false,
+				"multiple": false,
+				"required": true,
 				"types": [
 					{
 						"type": "statement",

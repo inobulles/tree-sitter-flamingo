@@ -405,23 +405,12 @@
 					}
 				},
 				{
-					"type": "STRING",
-					"value": "{"
-				},
-				{
 					"type": "FIELD",
 					"name": "body",
 					"content": {
-						"type": "REPEAT",
-						"content": {
-							"type": "SYMBOL",
-							"name": "statement"
-						}
+						"type": "SYMBOL",
+						"name": "statement"
 					}
-				},
-				{
-					"type": "STRING",
-					"value": "}"
 				}
 			]
 		},
