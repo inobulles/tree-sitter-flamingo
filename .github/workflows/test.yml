@@ -19,6 +19,7 @@ jobs:
         run: |
           cargo install tree-sitter-cli
           export PATH="$HOME/.cargo/bin:$PATH"
+          pnpm install
       - name: Generate parser
         run: |
           pnpm generate
