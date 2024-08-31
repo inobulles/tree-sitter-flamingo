@@ -1,0 +1,74 @@
+===
+Call
+===
+
+calling_as_statement()
+b = add("one expression", ("two_expression"))
+
+another_one(
+	can,
+	have,
+	more,
+)
+
+---
+
+(source_file
+	(statement
+		(expression
+			(call
+				(expression
+					(identifier)
+				)
+			)
+		)
+	)
+	(statement
+		(assignment
+			(identifier)
+			(expression
+				(call
+					(expression
+						(identifier)
+					)
+					(arg_list
+						(expression
+							(literal
+								(string)
+							)
+						)
+						(expression
+							(parenthesized_expression
+								(expression
+									(literal
+										(string)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(call
+				(expression
+					(identifier)
+				)
+				(arg_list
+					(expression
+						(identifier)
+					)
+					(expression
+						(identifier)
+					)
+					(expression
+						(identifier)
+					)
+				)
+			)
+		)
+	)
+)
