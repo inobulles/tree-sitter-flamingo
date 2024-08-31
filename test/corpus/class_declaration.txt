@@ -1,0 +1,101 @@
+===
+Class declaration
+===
+
+class EmptyClass {
+}
+
+class SomeFunctions {
+	fn a {
+		print "in a"
+	}
+
+	fn b {
+		print "in b"
+	}
+}
+
+class SingleFunction fn a {
+	print "in single function a"
+}
+
+---
+
+(source_file
+	(statement
+		(class_declaration
+			(identifier)
+			(statement
+				(block)
+			)
+		)
+	)
+	(statement
+		(class_declaration
+			(identifier)
+			(statement
+				(block
+					(statement
+						(function_declaration
+							(identifier)
+							(statement
+								(block
+									(statement
+										(print
+											(expression
+												(literal
+													(string)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+					(statement
+						(function_declaration
+							(identifier)
+							(statement
+								(block
+									(statement
+										(print
+											(expression
+												(literal
+													(string)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(class_declaration
+			(identifier)
+			(statement
+				(function_declaration
+					(identifier)
+					(statement
+						(block
+							(statement
+								(print
+									(expression
+										(literal
+											(string)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
