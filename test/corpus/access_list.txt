@@ -46,5 +46,7 @@ Access list
 			)
 		)
 	)
-	(comment)
+	(statement
+		(comment)
+	)
 )

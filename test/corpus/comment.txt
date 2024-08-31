@@ -6,12 +6,20 @@ Comments
 ## This is a documentation comment.
 print "Hello world!" # This is a regular comment on the same line as a statement.
 
+{
+	# Comment inside of block (meant as a regression test).
+}
+
 ---
 
 (source_file
-	(comment)
-	(doc_comment
-		(doc_comment_content)
+	(statement
+		(comment)
+	)
+	(statement
+		(doc_comment
+			(doc_comment_content)
+		)
 	)
 	(statement
 		(print
@@ -22,5 +30,14 @@ print "Hello world!" # This is a regular comment on the same line as a statement
 			)
 		)
 	)
-	(comment)
+	(statement
+		(comment)
+	)
+	(statement
+		(block
+			body: (statement
+				(comment)
+			)
+		)
+	)
 )

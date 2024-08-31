@@ -4,21 +4,8 @@
 		"source_file": {
 			"type": "REPEAT",
 			"content": {
-				"type": "CHOICE",
-				"members": [
-					{
-						"type": "SYMBOL",
-						"name": "statement"
-					},
-					{
-						"type": "SYMBOL",
-						"name": "doc_comment"
-					},
-					{
-						"type": "SYMBOL",
-						"name": "comment"
-					}
-				]
+				"type": "SYMBOL",
+				"name": "statement"
 			}
 		},
 		"comment": {
@@ -57,6 +44,14 @@
 		"statement": {
 			"type": "CHOICE",
 			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "comment"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "doc_comment"
+				},
 				{
 					"type": "SYMBOL",
 					"name": "block"

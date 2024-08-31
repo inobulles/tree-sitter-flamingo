@@ -5,7 +5,7 @@ module.exports = grammar({
 	name: "flamingo",
 
 	rules: {
-		source_file: $ => repeat(choice($.statement, $.doc_comment, $.comment)),
+		source_file: $ => repeat($.statement),
 
 		comment: _ => token(seq("#", /[^#].*/)),
 		doc_comment: $ => seq("##", $.doc_comment_content),
@@ -19,6 +19,8 @@ module.exports = grammar({
 
 		statement: $ =>
 			choice(
+				$.comment,
+				$.doc_comment,
 				$.block,
 				$.expression,
 				$.print,
