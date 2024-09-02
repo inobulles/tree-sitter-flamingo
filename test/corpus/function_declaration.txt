@@ -18,6 +18,10 @@ fn function_with_multiple_params(a, b, c) {
 	print "Hello world!"
 }
 
+fn function_with_types(a: str, b: str) -> str {
+	return "Hello world!"
+}
+
 ---
 
 (source_file
@@ -99,6 +103,53 @@ fn function_with_multiple_params(a, b, c) {
 					body: (statement
 						(print
 							msg: (expression
+								(literal
+									(string)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(function_declaration
+			name: (identifier)
+			params: (param_list
+				(param
+					ident: (identifier)
+					type: (type
+						(type_name
+							(identifier
+								(primitive_type)
+							)
+						)
+					)
+				)
+				(param
+					ident: (identifier)
+					type: (type
+						(type_name
+							(identifier
+								(primitive_type)
+							)
+						)
+					)
+				)
+			)
+			ret_type: (type
+				(type_name
+					(identifier
+						(primitive_type)
+					)
+				)
+			)
+			body: (statement
+				(block
+					body: (statement
+						(return
+							rv: (expression
 								(literal
 									(string)
 								)
