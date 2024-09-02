@@ -62,7 +62,7 @@ fn function_with_multiple_params(a, b, c) {
 			name: (identifier)
 			params: (param_list
 				(param
-					(identifier)
+					ident: (identifier)
 				)
 			)
 			body: (statement
@@ -85,13 +85,13 @@ fn function_with_multiple_params(a, b, c) {
 			name: (identifier)
 			params: (param_list
 				(param
-					(identifier)
+					ident: (identifier)
 				)
 				(param
-					(identifier)
+					ident: (identifier)
 				)
 				(param
-					(identifier)
+					ident: (identifier)
 				)
 			)
 			body: (statement

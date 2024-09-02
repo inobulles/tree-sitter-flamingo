@@ -99,7 +99,7 @@ module.exports = grammar({
 		type_name: $ => choice($.identifier, "vec", "map"),
 		type: $ => choice($.type_name, seq("vec", "<", $.type, ">"), seq("map", "<", $.type, ",", $.type, ">")),
 
-		param: $ => choice($.identifier, seq($.identifier, ":", $.type)),
+		param: $ => choice(field("ident", $.identifier), seq(field("ident", $.identifier), ":", field("type", $.type))),
 		param_list: $ => comma_sep($.param),
 
 		arg_list: $ => comma_sep($.expression),

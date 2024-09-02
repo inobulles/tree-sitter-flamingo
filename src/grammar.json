@@ -669,23 +669,35 @@
 			"type": "CHOICE",
 			"members": [
 				{
-					"type": "SYMBOL",
-					"name": "identifier"
+					"type": "FIELD",
+					"name": "ident",
+					"content": {
+						"type": "SYMBOL",
+						"name": "identifier"
+					}
 				},
 				{
 					"type": "SEQ",
 					"members": [
 						{
-							"type": "SYMBOL",
-							"name": "identifier"
+							"type": "FIELD",
+							"name": "ident",
+							"content": {
+								"type": "SYMBOL",
+								"name": "identifier"
+							}
 						},
 						{
 							"type": "STRING",
 							"value": ":"
 						},
 						{
-							"type": "SYMBOL",
-							"name": "type"
+							"type": "FIELD",
+							"name": "type",
+							"content": {
+								"type": "SYMBOL",
+								"name": "type"
+							}
 						}
 					]
 				}
