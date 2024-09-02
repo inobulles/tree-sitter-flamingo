@@ -75,7 +75,7 @@ module.exports = grammar({
 
 		print: $ => seq("print", field("msg", $.expression)),
 		assert: $ => seq("assert", field("test", $.expression)),
-		return: $ => seq("return", field("rv", $.expression)),
+		return: $ => prec.right(seq("return", optional(field("rv", $.expression)))),
 
 		expression: $ =>
 			prec(

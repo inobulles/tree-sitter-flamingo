@@ -478,21 +478,33 @@
 			]
 		},
 		"return": {
-			"type": "SEQ",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "return"
-				},
-				{
-					"type": "FIELD",
-					"name": "rv",
-					"content": {
-						"type": "SYMBOL",
-						"name": "expression"
+			"type": "PREC_RIGHT",
+			"value": 0,
+			"content": {
+				"type": "SEQ",
+				"members": [
+					{
+						"type": "STRING",
+						"value": "return"
+					},
+					{
+						"type": "CHOICE",
+						"members": [
+							{
+								"type": "FIELD",
+								"name": "rv",
+								"content": {
+									"type": "SYMBOL",
+									"name": "expression"
+								}
+							},
+							{
+								"type": "BLANK"
+							}
+						]
 					}
-				}
-			]
+				]
+			}
 		},
 		"expression": {
 			"type": "PREC",
