@@ -417,6 +417,10 @@
 					"named": true
 				},
 				{
+					"type": "none",
+					"named": true
+				},
+				{
 					"type": "number",
 					"named": true
 				},
@@ -867,6 +871,10 @@
 	{
 		"type": "map",
 		"named": false
+	},
+	{
+		"type": "none",
+		"named": true
 	},
 	{
 		"type": "number",

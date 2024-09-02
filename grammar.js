@@ -107,7 +107,7 @@ module.exports = grammar({
 
 		arg_list: $ => comma_sep($.expression),
 
-		literal: $ => choice($.number, $.string, $.bool),
+		literal: $ => choice($.number, $.string, $.bool, $.none),
 
 		var_declaration: $ => seq($.identifier, ":", $.type),
 		assignment: $ => seq(field("left", choice($.var_declaration, $.identifier)), "=", field("right", $.expression)),
@@ -131,5 +131,6 @@ module.exports = grammar({
 		number: _ => /\d+/,
 		string: _ => /"([^"\\]|\\.)*"/,
 		bool: _ => choice("true", "false", "error"),
+		none: _ => "none",
 	},
 })
