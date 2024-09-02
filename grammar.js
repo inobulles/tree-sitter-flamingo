@@ -57,6 +57,7 @@ module.exports = grammar({
 					"fn",
 					field("name", choice($.identifier, $.overloadable_operator)),
 					optional(seq("(", optional(field("params", $.param_list)), ")")),
+					optional(seq("->", field("ret_type", $.type))),
 					field("body", $.statement),
 				),
 			),
