@@ -31,6 +31,7 @@ module.exports = grammar({
 				$.expression,
 				$.print,
 				$.assert,
+				$.return,
 				$.assignment,
 				$.var_declaration,
 				$.import,
@@ -73,6 +74,7 @@ module.exports = grammar({
 
 		print: $ => seq("print", field("msg", $.expression)),
 		assert: $ => seq("assert", field("test", $.expression)),
+		return: $ => seq("return", field("rv", $.expression)),
 
 		expression: $ =>
 			prec(
@@ -108,8 +110,6 @@ module.exports = grammar({
 
 		var_declaration: $ => seq($.identifier, ":", $.type),
 		assignment: $ => seq(field("left", choice($.var_declaration, $.identifier)), "=", field("right", $.expression)),
-
-		return: $ => prec.left(100, seq("return", optional($.expression))),
 
 		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
 
