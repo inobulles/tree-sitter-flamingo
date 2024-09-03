@@ -105,7 +105,17 @@
 				"required": true,
 				"types": [
 					{
-						"type": "overloadable_operator",
+						"type": "operator",
+						"named": true
+					}
+				]
+			},
+			"right": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "expression",
 						"named": true
 					}
 				]
@@ -492,6 +502,11 @@
 		}
 	},
 	{
+		"type": "operator",
+		"named": true,
+		"fields": {}
+	},
+	{
 		"type": "overloadable_operator",
 		"named": true,
 		"fields": {}
@@ -761,7 +776,19 @@
 		"named": false
 	},
 	{
+		"type": "!=",
+		"named": false
+	},
+	{
 		"type": "##",
+		"named": false
+	},
+	{
+		"type": "%",
+		"named": false
+	},
+	{
+		"type": "&&",
 		"named": false
 	},
 	{
@@ -770,6 +797,14 @@
 	},
 	{
 		"type": ")",
+		"named": false
+	},
+	{
+		"type": "*",
+		"named": false
+	},
+	{
+		"type": "+",
 		"named": false
 	},
 	{
@@ -793,6 +828,10 @@
 		"named": false
 	},
 	{
+		"type": "/",
+		"named": false
+	},
+	{
 		"type": ":",
 		"named": false
 	},
@@ -801,7 +840,15 @@
 		"named": false
 	},
 	{
+		"type": "<=",
+		"named": false
+	},
+	{
 		"type": "=",
+		"named": false
+	},
+	{
+		"type": "==",
 		"named": false
 	},
 	{
@@ -810,6 +857,10 @@
 	},
 	{
 		"type": ">",
+		"named": false
+	},
+	{
+		"type": ">=",
 		"named": false
 	},
 	{
@@ -914,6 +965,10 @@
 	},
 	{
 		"type": "{",
+		"named": false
+	},
+	{
+		"type": "||",
 		"named": false
 	},
 	{

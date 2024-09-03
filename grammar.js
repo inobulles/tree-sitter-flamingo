@@ -94,7 +94,7 @@ module.exports = grammar({
 
 		parenthesized_expression: $ => seq("(", field("expression", $.expression), ")"),
 
-		access_list: $ => seq(field("accessed", $.expression), ".", field("accessor", $.identifier)),
+		access_list: $ => prec(10, seq(field("accessed", $.expression), ".", field("accessor", $.identifier))),
 
 		call: $ => prec(99, seq(field("callable", $.expression), "(", field("args", optional($.arg_list)), ")")),
 
@@ -116,7 +116,7 @@ module.exports = grammar({
 
 		// TODO Precedence. === has a lower precedence than ++. Currently I think it's just left-associative. How do I define precedence levels instead?
 		binary_expression: $ =>
-			seq(field("left", $.expression), field("operator", $.overloadable_operator, field("right", $.expression))),
+			prec.left(seq(field("left", $.expression), field("operator", $.operator), field("right", $.expression))),
 
 		expression_list: $ => choice($.expression, seq($.expression, ",", $.expression_list)),
 		vec: $ => seq("[", optional($.expression_list), "]"),
@@ -125,6 +125,7 @@ module.exports = grammar({
 		map_item_list: $ => choice($.map_item, seq($.map_item, ",", $.map_item_list)),
 		map: $ => prec(-1, seq("{", optional($.map_item_list), "}")),
 
+		operator: _ => choice("+", "-", "*", "/", "%", "&&", "||", "==", "!=", "<", ">", "<=", ">="),
 		overloadable_operator: _ => choice("++", "==="),
 		primitive_type: _ => choice("any", "int", "str", "bool", "void"),
 		identifier: $ => choice(/[_A-z][_A-z0-9]*/, $.primitive_type),
