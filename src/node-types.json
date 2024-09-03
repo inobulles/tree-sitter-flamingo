@@ -876,6 +876,10 @@
 		"named": false
 	},
 	{
+		"type": "^^",
+		"named": false
+	},
+	{
 		"type": "any",
 		"named": false
 	},
