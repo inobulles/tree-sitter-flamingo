@@ -1,0 +1,61 @@
+===
+Operations
+===
+
+420 + 69 # Basic binary operation
+4 + 2 + 0 # Left associativity
+
+---
+
+(source_file
+	(statement
+		(expression
+			(binary_expression
+				(expression
+					(literal
+						(number)
+					)
+				)
+				(operator)
+				(expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(comment)
+	)
+	(statement
+		(expression
+			(binary_expression
+				(expression
+					(binary_expression
+						(expression
+							(literal
+								(number)
+							)
+						)
+						(operator)
+						(expression
+							(literal
+								(number)
+							)
+						)
+					)
+				)
+				(operator)
+				(expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(comment)
+	)
+)
