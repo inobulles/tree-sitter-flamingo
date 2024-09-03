@@ -125,7 +125,7 @@ module.exports = grammar({
 		map_item_list: $ => choice($.map_item, seq($.map_item, ",", $.map_item_list)),
 		map: $ => prec(-1, seq("{", optional($.map_item_list), "}")),
 
-		operator: _ => choice("+", "-", "*", "/", "%", "&&", "||", "==", "!=", "<", ">", "<=", ">="),
+		operator: _ => choice("+", "-", "*", "/", "%", "**", "&&", "||", "==", "!=", "<", ">", "<=", ">="),
 		overloadable_operator: _ => choice("++", "==="),
 		primitive_type: _ => choice("any", "int", "str", "bool", "void"),
 		identifier: $ => choice(/[_A-z][_A-z0-9]*/, $.primitive_type),
