@@ -13,13 +13,6 @@ const PREC = {
 	or: 10,
 }
 
-const power_operators = ["**"]
-const multiplicative_operators = ["*", "/", "%"]
-const additive_operators = ["+", "-"]
-const comparative_operators = ["==", "!=", "<", "<=", ">", ">="]
-const and_operators = ["&&"]
-const or_operators = ["||"]
-
 // https://stackoverflow.com/questions/62661663/is-there-a-standard-treesitter-construct-for-parsing-an-arbitrary-length-list
 
 function comma_sep(rule) {
@@ -134,16 +127,23 @@ module.exports = grammar({
 
 		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
 
+		power_operator: _ => choice("**"),
+		multiplicative_operator: _ => choice("*", "/", "%"),
+		additive_operator: _ => choice("+", "-"),
+		comparative_operator: _ => choice("==", "!=", "<", "<=", ">", ">="),
+		and_operator: _ => choice("&&"),
+		or_operator: _ => choice("||"),
+
 		binary_expression: $ => {
 			// Stolen from tree-sitter-go.
 
 			const table = [
-				[PREC.power, choice(...power_operators)],
-				[PREC.multiplicative, choice(...multiplicative_operators)],
-				[PREC.additive, choice(...additive_operators)],
-				[PREC.comparative, choice(...comparative_operators)],
-				[PREC.and, choice(...and_operators)],
-				[PREC.or, choice(...or_operators)],
+				[PREC.power, $.power_operator],
+				[PREC.multiplicative, $.multiplicative_operator],
+				[PREC.additive, $.additive_operator],
+				[PREC.comparative, $.comparative_operator],
+				[PREC.and, $.and_operator],
+				[PREC.or, $.or_operator],
 			]
 
 			return choice(

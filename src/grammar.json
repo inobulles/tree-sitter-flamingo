@@ -942,6 +942,92 @@
 				}
 			]
 		},
+		"power_operator": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "**"
+				}
+			]
+		},
+		"multiplicative_operator": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "*"
+				},
+				{
+					"type": "STRING",
+					"value": "/"
+				},
+				{
+					"type": "STRING",
+					"value": "%"
+				}
+			]
+		},
+		"additive_operator": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "+"
+				},
+				{
+					"type": "STRING",
+					"value": "-"
+				}
+			]
+		},
+		"comparative_operator": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "=="
+				},
+				{
+					"type": "STRING",
+					"value": "!="
+				},
+				{
+					"type": "STRING",
+					"value": "<"
+				},
+				{
+					"type": "STRING",
+					"value": "<="
+				},
+				{
+					"type": "STRING",
+					"value": ">"
+				},
+				{
+					"type": "STRING",
+					"value": ">="
+				}
+			]
+		},
+		"and_operator": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "&&"
+				}
+			]
+		},
+		"or_operator": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "||"
+				}
+			]
+		},
 		"binary_expression": {
 			"type": "CHOICE",
 			"members": [
@@ -963,13 +1049,8 @@
 								"type": "FIELD",
 								"name": "operator",
 								"content": {
-									"type": "CHOICE",
-									"members": [
-										{
-											"type": "STRING",
-											"value": "**"
-										}
-									]
+									"type": "SYMBOL",
+									"name": "power_operator"
 								}
 							},
 							{
@@ -1001,21 +1082,8 @@
 								"type": "FIELD",
 								"name": "operator",
 								"content": {
-									"type": "CHOICE",
-									"members": [
-										{
-											"type": "STRING",
-											"value": "*"
-										},
-										{
-											"type": "STRING",
-											"value": "/"
-										},
-										{
-											"type": "STRING",
-											"value": "%"
-										}
-									]
+									"type": "SYMBOL",
+									"name": "multiplicative_operator"
 								}
 							},
 							{
@@ -1047,17 +1115,8 @@
 								"type": "FIELD",
 								"name": "operator",
 								"content": {
-									"type": "CHOICE",
-									"members": [
-										{
-											"type": "STRING",
-											"value": "+"
-										},
-										{
-											"type": "STRING",
-											"value": "-"
-										}
-									]
+									"type": "SYMBOL",
+									"name": "additive_operator"
 								}
 							},
 							{
@@ -1089,33 +1148,8 @@
 								"type": "FIELD",
 								"name": "operator",
 								"content": {
-									"type": "CHOICE",
-									"members": [
-										{
-											"type": "STRING",
-											"value": "=="
-										},
-										{
-											"type": "STRING",
-											"value": "!="
-										},
-										{
-											"type": "STRING",
-											"value": "<"
-										},
-										{
-											"type": "STRING",
-											"value": "<="
-										},
-										{
-											"type": "STRING",
-											"value": ">"
-										},
-										{
-											"type": "STRING",
-											"value": ">="
-										}
-									]
+									"type": "SYMBOL",
+									"name": "comparative_operator"
 								}
 							},
 							{
@@ -1147,13 +1181,8 @@
 								"type": "FIELD",
 								"name": "operator",
 								"content": {
-									"type": "CHOICE",
-									"members": [
-										{
-											"type": "STRING",
-											"value": "&&"
-										}
-									]
+									"type": "SYMBOL",
+									"name": "and_operator"
 								}
 							},
 							{
@@ -1185,13 +1214,8 @@
 								"type": "FIELD",
 								"name": "operator",
 								"content": {
-									"type": "CHOICE",
-									"members": [
-										{
-											"type": "STRING",
-											"value": "||"
-										}
-									]
+									"type": "SYMBOL",
+									"name": "or_operator"
 								}
 							},
 							{

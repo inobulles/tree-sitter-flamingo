@@ -26,6 +26,16 @@
 		}
 	},
 	{
+		"type": "additive_operator",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "and_operator",
+		"named": true,
+		"fields": {}
+	},
+	{
 		"type": "arg_list",
 		"named": true,
 		"fields": {},
@@ -105,60 +115,28 @@
 				"required": true,
 				"types": [
 					{
-						"type": "!=",
-						"named": false
+						"type": "additive_operator",
+						"named": true
 					},
 					{
-						"type": "%",
-						"named": false
+						"type": "and_operator",
+						"named": true
 					},
 					{
-						"type": "&&",
-						"named": false
+						"type": "comparative_operator",
+						"named": true
 					},
 					{
-						"type": "*",
-						"named": false
+						"type": "multiplicative_operator",
+						"named": true
 					},
 					{
-						"type": "**",
-						"named": false
+						"type": "or_operator",
+						"named": true
 					},
 					{
-						"type": "+",
-						"named": false
-					},
-					{
-						"type": "-",
-						"named": false
-					},
-					{
-						"type": "/",
-						"named": false
-					},
-					{
-						"type": "<",
-						"named": false
-					},
-					{
-						"type": "<=",
-						"named": false
-					},
-					{
-						"type": "==",
-						"named": false
-					},
-					{
-						"type": ">",
-						"named": false
-					},
-					{
-						"type": ">=",
-						"named": false
-					},
-					{
-						"type": "||",
-						"named": false
+						"type": "power_operator",
+						"named": true
 					}
 				]
 			},
@@ -256,6 +234,11 @@
 				]
 			}
 		}
+	},
+	{
+		"type": "comparative_operator",
+		"named": true,
+		"fields": {}
 	},
 	{
 		"type": "doc_comment",
@@ -554,6 +537,16 @@
 		}
 	},
 	{
+		"type": "multiplicative_operator",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "or_operator",
+		"named": true,
+		"fields": {}
+	},
+	{
 		"type": "overloadable_operator",
 		"named": true,
 		"fields": {}
@@ -614,6 +607,11 @@
 				]
 			}
 		}
+	},
+	{
+		"type": "power_operator",
+		"named": true,
+		"fields": {}
 	},
 	{
 		"type": "primitive_type",
