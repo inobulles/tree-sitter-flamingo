@@ -4,6 +4,7 @@ Operations
 
 420 + 69 # Basic binary operation
 4 + 2 + 0 # Left associativity
+4 + 2 * 0 # Operator precedence
 
 ---
 
@@ -16,7 +17,7 @@ Operations
 						(number)
 					)
 				)
-				(operator)
+				(additive_operator)
 				(expression
 					(literal
 						(number)
@@ -38,7 +39,7 @@ Operations
 								(number)
 							)
 						)
-						(operator)
+						(additive_operator)
 						(expression
 							(literal
 								(number)
@@ -46,10 +47,40 @@ Operations
 						)
 					)
 				)
-				(operator)
+				(additive_operator)
 				(expression
 					(literal
 						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(comment)
+	)
+	(statement
+		(expression
+			(binary_expression
+				(expression
+					(literal
+						(number)
+					)
+				)
+				(additive_operator)
+				(expression
+					(binary_expression
+						(expression
+							(literal
+								(number)
+							)
+						)
+						(multiplicative_operator)
+						(expression
+							(literal
+								(number)
+							)
+						)
 					)
 				)
 			)
