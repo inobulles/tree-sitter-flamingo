@@ -132,7 +132,7 @@ module.exports = grammar({
 		additive_operator: _ => choice("+", "-"),
 		comparative_operator: _ => choice("==", "!=", "<", "<=", ">", ">="),
 		and_operator: _ => choice("&&"),
-		or_operator: _ => choice("||"),
+		or_operator: _ => choice("||", "^^"),
 
 		binary_expression: $ => {
 			// Stolen from tree-sitter-go.
