@@ -105,8 +105,60 @@
 				"required": true,
 				"types": [
 					{
-						"type": "operator",
-						"named": true
+						"type": "!=",
+						"named": false
+					},
+					{
+						"type": "%",
+						"named": false
+					},
+					{
+						"type": "&&",
+						"named": false
+					},
+					{
+						"type": "*",
+						"named": false
+					},
+					{
+						"type": "**",
+						"named": false
+					},
+					{
+						"type": "+",
+						"named": false
+					},
+					{
+						"type": "-",
+						"named": false
+					},
+					{
+						"type": "/",
+						"named": false
+					},
+					{
+						"type": "<",
+						"named": false
+					},
+					{
+						"type": "<=",
+						"named": false
+					},
+					{
+						"type": "==",
+						"named": false
+					},
+					{
+						"type": ">",
+						"named": false
+					},
+					{
+						"type": ">=",
+						"named": false
+					},
+					{
+						"type": "||",
+						"named": false
 					}
 				]
 			},
@@ -502,11 +554,6 @@
 		}
 	},
 	{
-		"type": "operator",
-		"named": true,
-		"fields": {}
-	},
-	{
 		"type": "overloadable_operator",
 		"named": true,
 		"fields": {}
@@ -873,10 +920,6 @@
 	},
 	{
 		"type": "]",
-		"named": false
-	},
-	{
-		"type": "^^",
 		"named": false
 	},
 	{

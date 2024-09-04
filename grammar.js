@@ -1,12 +1,32 @@
 // This Source Form is subject to the terms of the AQUA Software License,
 // v. 1.0. Copyright (c) 2024 Aymeric Wibo
 
+const PREC = {
+	access: 90,
+	primary: 80,
+	unary: 70,
+	power: 60,
+	multiplicative: 50,
+	additive: 40,
+	comparative: 30,
+	and: 20,
+	or: 10,
+}
+
+const power_operators = ["**"]
+const multiplicative_operators = ["*", "/", "%"]
+const additive_operators = ["+", "-"]
+const comparative_operators = ["==", "!=", "<", "<=", ">", ">="]
+const and_operators = ["&&"]
+const or_operators = ["||"]
+
 // https://stackoverflow.com/questions/62661663/is-there-a-standard-treesitter-construct-for-parsing-an-arbitrary-length-list
 
 function comma_sep(rule) {
 	return seq(rule, repeat(seq(",", rule)), optional(","))
 }
 
+// @ts-ignore: Fairly certain Tree-sitter doesn't support ES6 modules.
 module.exports = grammar({
 	name: "flamingo",
 
@@ -94,9 +114,9 @@ module.exports = grammar({
 
 		parenthesized_expression: $ => seq("(", field("expression", $.expression), ")"),
 
-		access_list: $ => prec(10, seq(field("accessed", $.expression), ".", field("accessor", $.identifier))),
+		access_list: $ => prec(PREC.access, seq(field("accessed", $.expression), ".", field("accessor", $.identifier))),
 
-		call: $ => prec(99, seq(field("callable", $.expression), "(", field("args", optional($.arg_list)), ")")),
+		call: $ => prec(PREC.primary, seq(field("callable", $.expression), "(", field("args", optional($.arg_list)), ")")),
 
 		template_type: _ => choice("vec", "map"),
 		type_name: $ => choice($.identifier, "vec", "map"),
@@ -114,9 +134,27 @@ module.exports = grammar({
 
 		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
 
-		// TODO Precedence. === has a lower precedence than ++. Currently I think it's just left-associative. How do I define precedence levels instead?
-		binary_expression: $ =>
-			prec.left(seq(field("left", $.expression), field("operator", $.operator), field("right", $.expression))),
+		binary_expression: $ => {
+			// Stolen from tree-sitter-go.
+
+			const table = [
+				[PREC.power, choice(...power_operators)],
+				[PREC.multiplicative, choice(...multiplicative_operators)],
+				[PREC.additive, choice(...additive_operators)],
+				[PREC.comparative, choice(...comparative_operators)],
+				[PREC.and, choice(...and_operators)],
+				[PREC.or, choice(...or_operators)],
+			]
+
+			return choice(
+				...table.map(([precedence, operator]) =>
+					prec.left(
+						precedence,
+						seq(field("left", $.expression), field("operator", operator), field("right", $.expression)),
+					),
+				),
+			)
+		},
 
 		expression_list: $ => choice($.expression, seq($.expression, ",", $.expression_list)),
 		vec: $ => seq("[", optional($.expression_list), "]"),
@@ -125,7 +163,6 @@ module.exports = grammar({
 		map_item_list: $ => choice($.map_item, seq($.map_item, ",", $.map_item_list)),
 		map: $ => prec(-1, seq("{", optional($.map_item_list), "}")),
 
-		operator: _ => choice("+", "-", "*", "/", "%", "**", "&&", "||", "^^", "==", "!=", "<", ">", "<=", ">="),
 		overloadable_operator: _ => choice("++", "==="),
 		primitive_type: _ => choice("any", "int", "str", "bool", "void"),
 		identifier: $ => choice(/[_A-z][_A-z0-9]*/, $.primitive_type),
