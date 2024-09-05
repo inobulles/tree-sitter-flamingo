@@ -97,7 +97,7 @@ module.exports = grammar({
 					$.identifier,
 					$.literal,
 					$.call,
-					$.access_list,
+					$.access,
 					$.parenthesized_expression,
 					$.vec,
 					$.map,
@@ -107,8 +107,7 @@ module.exports = grammar({
 
 		parenthesized_expression: $ => seq("(", field("expression", $.expression), ")"),
 
-		access_list: $ => prec(PREC.access, seq(field("accessed", $.expression), ".", field("accessor", $.identifier))),
-
+		access: $ => prec(PREC.access, seq(field("accessed", $.expression), ".", field("accessor", $.identifier))),
 		call: $ => prec(PREC.primary, seq(field("callable", $.expression), "(", field("args", optional($.arg_list)), ")")),
 
 		template_type: _ => choice("vec", "map"),

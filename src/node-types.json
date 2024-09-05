@@ -1,6 +1,6 @@
 [
 	{
-		"type": "access_list",
+		"type": "access",
 		"named": true,
 		"fields": {
 			"accessed": {
@@ -264,7 +264,7 @@
 			"required": true,
 			"types": [
 				{
-					"type": "access_list",
+					"type": "access",
 					"named": true
 				},
 				{

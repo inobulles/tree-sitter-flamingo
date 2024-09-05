@@ -1,0 +1,52 @@
+===
+Access
+===
+
+("some expression").first
+"some other expression".first.second.third # This expression is not parenthesized because that would be ambiguous.
+
+---
+
+(source_file
+	(statement
+		(expression
+			(access
+				accessed: (expression
+					(parenthesized_expression
+						expression: (expression
+							(literal
+								(string)
+							)
+						)
+					)
+				)
+				accessor: (identifier)
+			)
+		)
+	)
+	(statement
+		(expression
+			(access
+				accessed: (expression
+					(access
+						accessed: (expression
+							(access
+								accessed: (expression
+									(literal
+										(string)
+									)
+								)
+								accessor: (identifier)
+							)
+						)
+						accessor: (identifier)
+					)
+				)
+				accessor: (identifier)
+			)
+		)
+	)
+	(statement
+		(comment)
+	)
+)

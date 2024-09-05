@@ -526,7 +526,7 @@
 					},
 					{
 						"type": "SYMBOL",
-						"name": "access_list"
+						"name": "access"
 					},
 					{
 						"type": "SYMBOL",
@@ -568,7 +568,7 @@
 				}
 			]
 		},
-		"access_list": {
+		"access": {
 			"type": "PREC",
 			"value": 90,
 			"content": {
