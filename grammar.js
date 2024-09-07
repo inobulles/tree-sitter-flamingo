@@ -3,7 +3,7 @@
 
 const PREC = {
 	access: 90,
-	primary: 80,
+	call: 80,
 	unary: 70,
 	power: 60,
 	multiplicative: 50,
@@ -108,7 +108,7 @@ module.exports = grammar({
 		parenthesized_expression: $ => seq("(", field("expression", $.expression), ")"),
 
 		access: $ => prec(PREC.access, seq(field("accessed", $.expression), ".", field("accessor", $.identifier))),
-		call: $ => prec(PREC.primary, seq(field("callable", $.expression), "(", field("args", optional($.arg_list)), ")")),
+		call: $ => prec(PREC.call, seq(field("callable", $.expression), "(", field("args", optional($.arg_list)), ")")),
 
 		template_type: _ => choice("vec", "map"),
 		type_name: $ => choice($.identifier, "vec", "map"),
