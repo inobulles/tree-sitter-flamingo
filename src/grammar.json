@@ -342,7 +342,7 @@
 						"name": "body",
 						"content": {
 							"type": "SYMBOL",
-							"name": "statement"
+							"name": "block"
 						}
 					}
 				]

@@ -28,14 +28,12 @@ fn function_with_types(a: str, b: str) -> str {
 	(statement
 		(function_declaration
 			name: (identifier)
-			body: (statement
-				(block
-					body: (statement
-						(print
-							msg: (expression
-								(literal
-									(string)
-								)
+			body: (block
+				body: (statement
+					(print
+						msg: (expression
+							(literal
+								(string)
 							)
 						)
 					)
@@ -46,14 +44,12 @@ fn function_with_types(a: str, b: str) -> str {
 	(statement
 		(function_declaration
 			name: (identifier)
-			body: (statement
-				(block
-					body: (statement
-						(print
-							msg: (expression
-								(literal
-									(string)
-								)
+			body: (block
+				body: (statement
+					(print
+						msg: (expression
+							(literal
+								(string)
 							)
 						)
 					)
@@ -69,14 +65,12 @@ fn function_with_types(a: str, b: str) -> str {
 					ident: (identifier)
 				)
 			)
-			body: (statement
-				(block
-					body: (statement
-						(print
-							msg: (expression
-								(literal
-									(string)
-								)
+			body: (block
+				body: (statement
+					(print
+						msg: (expression
+							(literal
+								(string)
 							)
 						)
 					)
@@ -98,14 +92,12 @@ fn function_with_types(a: str, b: str) -> str {
 					ident: (identifier)
 				)
 			)
-			body: (statement
-				(block
-					body: (statement
-						(print
-							msg: (expression
-								(literal
-									(string)
-								)
+			body: (block
+				body: (statement
+					(print
+						msg: (expression
+							(literal
+								(string)
 							)
 						)
 					)
@@ -145,14 +137,12 @@ fn function_with_types(a: str, b: str) -> str {
 					)
 				)
 			)
-			body: (statement
-				(block
-					body: (statement
-						(return
-							rv: (expression
-								(literal
-									(string)
-								)
+			body: (block
+				body: (statement
+					(return
+						rv: (expression
+							(literal
+								(string)
 							)
 						)
 					)

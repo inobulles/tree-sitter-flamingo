@@ -37,14 +37,12 @@ class SingleFunction fn a {
 				(statement
 					(function_declaration
 						(identifier)
-						(statement
-							(block
-								(statement
-									(print
-										(expression
-											(literal
-												(string)
-											)
+						(block
+							(statement
+								(print
+									(expression
+										(literal
+											(string)
 										)
 									)
 								)
@@ -55,14 +53,12 @@ class SingleFunction fn a {
 				(statement
 					(function_declaration
 						(identifier)
-						(statement
-							(block
-								(statement
-									(print
-										(expression
-											(literal
-												(string)
-											)
+						(block
+							(statement
+								(print
+									(expression
+										(literal
+											(string)
 										)
 									)
 								)
