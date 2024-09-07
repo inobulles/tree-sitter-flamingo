@@ -1,0 +1,20 @@
+===
+Assignment
+===
+
+a = 420
+
+---
+
+(source_file
+	(statement
+		(assignment
+			left: (identifier)
+			right: (expression
+				(literal
+					(number)
+				)
+			)
+		)
+	)
+)
