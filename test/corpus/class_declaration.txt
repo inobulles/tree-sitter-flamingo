@@ -15,6 +15,8 @@ class SomeFunctions {
 	}
 }
 
+# This is illegal!
+
 class SingleFunction fn a {
 	print "in single function a"
 }
@@ -25,27 +27,23 @@ class SingleFunction fn a {
 	(statement
 		(class_declaration
 			(identifier)
-			(statement
-				(block)
-			)
+			(block)
 		)
 	)
 	(statement
 		(class_declaration
 			(identifier)
-			(statement
-				(block
-					(statement
-						(function_declaration
-							(identifier)
-							(statement
-								(block
-									(statement
-										(print
-											(expression
-												(literal
-													(string)
-												)
+			(block
+				(statement
+					(function_declaration
+						(identifier)
+						(statement
+							(block
+								(statement
+									(print
+										(expression
+											(literal
+												(string)
 											)
 										)
 									)
@@ -53,17 +51,17 @@ class SingleFunction fn a {
 							)
 						)
 					)
-					(statement
-						(function_declaration
-							(identifier)
-							(statement
-								(block
-									(statement
-										(print
-											(expression
-												(literal
-													(string)
-												)
+				)
+				(statement
+					(function_declaration
+						(identifier)
+						(statement
+							(block
+								(statement
+									(print
+										(expression
+											(literal
+												(string)
 											)
 										)
 									)
@@ -76,21 +74,18 @@ class SingleFunction fn a {
 		)
 	)
 	(statement
+		(comment)
+	)
+	(statement
 		(class_declaration
 			(identifier)
-			(statement
-				(function_declaration
-					(identifier)
-					(statement
-						(block
-							(statement
-								(print
-									(expression
-										(literal
-											(string)
-										)
-									)
-								)
+			(ERROR)
+			(block
+				(statement
+					(print
+						(expression
+							(literal
+								(string)
 							)
 						)
 					)

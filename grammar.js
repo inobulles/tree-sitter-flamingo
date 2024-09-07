@@ -83,7 +83,7 @@ module.exports = grammar({
 				field("qualifiers", optional($.qualifier_list)),
 				"class",
 				field("name", $.identifier),
-				field("body", $.statement),
+				field("body", $.block),
 			),
 
 		print: $ => seq("print", field("msg", $.expression)),
