@@ -23,6 +23,10 @@ function comma_sep(rule) {
 module.exports = grammar({
 	name: "flamingo",
 
+	// No one should be using CRLF's, but just in case this removes CR's.
+
+	// extras: _ => ["\r"],
+
 	rules: {
 		source_file: $ => repeat($.statement),
 
