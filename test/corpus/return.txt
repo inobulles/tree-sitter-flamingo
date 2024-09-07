@@ -1,0 +1,52 @@
+===
+Return
+===
+
+return 69
+return
+69
+
+# Regression test.
+
+return
+a = 420
+
+---
+
+(source_file
+	(statement
+		(return
+			rv: (expression
+				(literal
+					(number)
+				)
+			)
+		)
+	)
+	(statement
+		(return)
+	)
+	(statement
+		(expression
+			(literal
+				(number)
+			)
+		)
+	)
+	(statement
+		(comment)
+	)
+	(statement
+		(return)
+	)
+	(statement
+		(assignment
+			left: (identifier)
+			right: (expression
+				(literal
+					(number)
+				)
+			)
+		)
+	)
+)
