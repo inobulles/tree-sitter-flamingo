@@ -1,0 +1,38 @@
+===
+Variable declaration (let)
+===
+
+let x = "Hello world!"
+let x: int = 420
+
+---
+
+(source_file
+	(statement
+		(var_decl
+			name: (identifier)
+			initial: (expression
+				(literal
+					(string)
+				)
+			)
+		)
+	)
+	(statement
+		(var_decl
+			name: (identifier)
+			type: (type
+				(type_name
+					(identifier
+						(primitive_type)
+					)
+				)
+			)
+			initial: (expression
+				(literal
+					(number)
+				)
+			)
+		)
+	)
+)
