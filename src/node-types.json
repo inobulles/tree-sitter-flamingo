@@ -75,11 +75,11 @@
 				"required": true,
 				"types": [
 					{
-						"type": "identifier",
+						"type": "access",
 						"named": true
 					},
 					{
-						"type": "var_declaration",
+						"type": "identifier",
 						"named": true
 					}
 				]
@@ -742,7 +742,7 @@
 					"named": true
 				},
 				{
-					"type": "var_declaration",
+					"type": "var_decl",
 					"named": true
 				}
 			]
@@ -783,22 +783,39 @@
 		}
 	},
 	{
-		"type": "var_declaration",
+		"type": "var_decl",
 		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "identifier",
-					"named": true
-				},
-				{
-					"type": "type",
-					"named": true
-				}
-			]
+		"fields": {
+			"initial": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			},
+			"name": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "identifier",
+						"named": true
+					}
+				]
+			},
+			"type": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "type",
+						"named": true
+					}
+				]
+			}
 		}
 	},
 	{
@@ -974,6 +991,10 @@
 	},
 	{
 		"type": "int",
+		"named": false
+	},
+	{
+		"type": "let",
 		"named": false
 	},
 	{

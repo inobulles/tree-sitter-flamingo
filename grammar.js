@@ -50,8 +50,8 @@ module.exports = grammar({
 				$.assert,
 				$.return,
 				$.assignment,
-				$.var_declaration,
 				$.import,
+				$.var_decl,
 				$.function_declaration,
 				$.class_declaration,
 				$.return,
@@ -125,8 +125,14 @@ module.exports = grammar({
 
 		literal: $ => choice($.number, $.string, $.bool, $.none),
 
-		var_declaration: $ => seq($.identifier, ":", $.type),
-		assignment: $ => seq(field("left", choice($.var_declaration, $.identifier)), "=", field("right", $.expression)),
+		var_decl: $ =>
+			seq(
+				"let",
+				field("name", $.identifier),
+				optional(seq(":", field("type", $.type))),
+				optional(seq("=", field("initial", $.expression))),
+			),
+		assignment: $ => seq(field("left", choice($.access, $.identifier)), "=", field("right", $.expression)),
 
 		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
 
