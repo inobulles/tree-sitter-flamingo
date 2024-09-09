@@ -29,19 +29,34 @@
 
 ; declarations
 
+(var_decl name: (identifier) type: (type) @variable)
 (function_declaration name:
 	[
 		(identifier)
 		(overloadable_operator)
 	] @function
 )
-(class_declaration name: (identifier) @function)
+(class_declaration name: (identifier) @class)
 
 ; operators
 
-; [
-; 	"+"
-; ] @operator
+[
+	"**"
+	"*"
+	"/"
+	"%"
+	"+"
+	"-"
+	"=="
+	"!="
+	"<"
+	">"
+	"<="
+	">="
+	"&&"
+	"||"
+	"^^"
+] @operator
 
 ; keywords
 
