@@ -21,6 +21,11 @@ class SingleFunction fn a {
 	print "in single function a"
 }
 
+# Parameters.
+
+class WithParameters(x: int, y) {
+}
+
 ---
 
 (source_file
@@ -87,6 +92,30 @@ class SingleFunction fn a {
 					)
 				)
 			)
+		)
+	)
+	(statement
+		(comment)
+	)
+	(statement
+		(class_declaration
+			(identifier)
+			(param_list
+				(param
+					(identifier)
+					(type
+						(type_name
+							(identifier
+								(primitive_type)
+							)
+						)
+					)
+				)
+				(param
+					(identifier)
+				)
+			)
+			(block)
 		)
 	)
 )
