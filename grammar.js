@@ -87,6 +87,7 @@ module.exports = grammar({
 				field("qualifiers", optional($.qualifier_list)),
 				"class",
 				field("name", $.identifier),
+				optional(seq("(", optional(field("params", $.param_list)), ")")),
 				field("body", $.block),
 			),
 

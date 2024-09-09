@@ -223,6 +223,16 @@
 					}
 				]
 			},
+			"params": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "param_list",
+						"named": true
+					}
+				]
+			},
 			"qualifiers": {
 				"multiple": false,
 				"required": false,

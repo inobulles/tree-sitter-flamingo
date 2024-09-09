@@ -434,6 +434,43 @@
 					}
 				},
 				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SEQ",
+							"members": [
+								{
+									"type": "STRING",
+									"value": "("
+								},
+								{
+									"type": "CHOICE",
+									"members": [
+										{
+											"type": "FIELD",
+											"name": "params",
+											"content": {
+												"type": "SYMBOL",
+												"name": "param_list"
+											}
+										},
+										{
+											"type": "BLANK"
+										}
+									]
+								},
+								{
+									"type": "STRING",
+									"value": ")"
+								}
+							]
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				},
+				{
 					"type": "FIELD",
 					"name": "body",
 					"content": {
