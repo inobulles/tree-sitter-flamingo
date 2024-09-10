@@ -645,6 +645,46 @@
 		}
 	},
 	{
+		"type": "proto",
+		"named": true,
+		"fields": {
+			"name": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "identifier",
+						"named": true
+					},
+					{
+						"type": "overloadable_operator",
+						"named": true
+					}
+				]
+			},
+			"params": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "param_list",
+						"named": true
+					}
+				]
+			},
+			"ret_type": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "type",
+						"named": true
+					}
+				]
+			}
+		}
+	},
+	{
 		"type": "qualifier",
 		"named": true,
 		"fields": {}
@@ -745,6 +785,10 @@
 				},
 				{
 					"type": "print",
+					"named": true
+				},
+				{
+					"type": "proto",
 					"named": true
 				},
 				{
@@ -1021,6 +1065,10 @@
 	},
 	{
 		"type": "print",
+		"named": false
+	},
+	{
+		"type": "proto",
 		"named": false
 	},
 	{

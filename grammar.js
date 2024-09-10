@@ -54,6 +54,7 @@ module.exports = grammar({
 				$.var_decl,
 				$.function_declaration,
 				$.class_declaration,
+				$.proto,
 				$.return,
 			),
 
@@ -76,6 +77,16 @@ module.exports = grammar({
 					optional(seq("(", optional(field("params", $.param_list)), ")")),
 					optional(seq("->", field("ret_type", $.type))),
 					field("body", $.block),
+				),
+			),
+
+		proto: $ =>
+			prec.right(
+				seq(
+					"proto",
+					field("name", choice($.identifier, $.overloadable_operator)),
+					optional(seq("(", optional(field("params", $.param_list)), ")")),
+					optional(seq("->", field("ret_type", $.type))),
 				),
 			),
 
