@@ -1,0 +1,84 @@
+===
+Function declaration
+===
+
+proto no_params
+proto no_params_but_with_parens()
+proto one_param(a)
+proto multiple_params(a, b, c)
+proto multiple_params_with_types(a: str, b: str) -> str
+
+---
+
+(source_file
+	(statement
+		(proto
+			name: (identifier)
+		)
+	)
+	(statement
+		(proto
+			name: (identifier)
+		)
+	)
+	(statement
+		(proto
+			name: (identifier)
+			params: (param_list
+				(param
+					ident: (identifier)
+				)
+			)
+		)
+	)
+	(statement
+		(proto
+			name: (identifier)
+			params: (param_list
+				(param
+					ident: (identifier)
+				)
+				(param
+					ident: (identifier)
+				)
+				(param
+					ident: (identifier)
+				)
+			)
+		)
+	)
+	(statement
+		(proto
+			name: (identifier)
+			params: (param_list
+				(param
+					ident: (identifier)
+					type: (type
+						(type_name
+							(identifier
+								(primitive_type)
+							)
+						)
+					)
+				)
+				(param
+					ident: (identifier)
+					type: (type
+						(type_name
+							(identifier
+								(primitive_type)
+							)
+						)
+					)
+				)
+			)
+			ret_type: (type
+				(type_name
+					(identifier
+						(primitive_type)
+					)
+				)
+			)
+		)
+	)
+)
