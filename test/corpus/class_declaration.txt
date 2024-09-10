@@ -80,7 +80,9 @@ class WithParameters(x: int, y) {
 	(statement
 		(class_declaration
 			(identifier)
-			(ERROR)
+			(ERROR
+				(UNEXPECTED ' ')
+			)
 			(block
 				(statement
 					(print
