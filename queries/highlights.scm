@@ -45,9 +45,10 @@
 ; Keywords.
 
 [
-	"extern"
+	"static"
 	"pure"
 	"fn"
+	"proto"
 	"class"
 	"import"
 	"return"
