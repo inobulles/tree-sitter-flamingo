@@ -64,8 +64,8 @@ module.exports = grammar({
 		import_path: $ => seq(field("bit", $.identifier), optional(seq(".", field("rest", $.import_path)))),
 		import_relative_dot: _ => ".",
 
-		qualifier: _ => choice("extern", "pure"),
-		qualifier_list: $ => choice($.qualifier, seq($.qualifier, $.qualifier_list)),
+		qualifier: _ => choice("static", "pure"),
+		qualifier_list: $ => repeat1($.qualifier),
 
 		function_declaration: $ =>
 			prec(
@@ -83,6 +83,7 @@ module.exports = grammar({
 		proto: $ =>
 			prec.right(
 				seq(
+					field("qualifiers", optional($.qualifier_list)),
 					"proto",
 					field("name", choice($.identifier, $.overloadable_operator)),
 					optional(seq("(", optional(field("params", $.param_list)), ")")),
@@ -139,6 +140,7 @@ module.exports = grammar({
 
 		var_decl: $ =>
 			seq(
+				field("qualifiers", optional($.qualifier_list)),
 				"let",
 				field("name", $.identifier),
 				optional(seq(":", field("type", $.type))),

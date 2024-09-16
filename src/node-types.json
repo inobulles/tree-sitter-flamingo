@@ -672,6 +672,16 @@
 					}
 				]
 			},
+			"qualifiers": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "qualifier_list",
+						"named": true
+					}
+				]
+			},
 			"ret_type": {
 				"multiple": false,
 				"required": false,
@@ -699,10 +709,6 @@
 			"types": [
 				{
 					"type": "qualifier",
-					"named": true
-				},
-				{
-					"type": "qualifier_list",
 					"named": true
 				}
 			]
@@ -856,6 +862,16 @@
 				"types": [
 					{
 						"type": "identifier",
+						"named": true
+					}
+				]
+			},
+			"qualifiers": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "qualifier_list",
 						"named": true
 					}
 				]
@@ -1028,10 +1044,6 @@
 		"named": false
 	},
 	{
-		"type": "extern",
-		"named": false
-	},
-	{
 		"type": "false",
 		"named": false
 	},
@@ -1077,6 +1089,10 @@
 	},
 	{
 		"type": "return",
+		"named": false
+	},
+	{
+		"type": "static",
 		"named": false
 	},
 	{
