@@ -90,4 +90,10 @@
 		(overloadable_operator)
 	] @function
 )
+(proto name:
+	[
+		(identifier)
+		(overloadable_operator)
+	] @function
+)
 (class_declaration name: (identifier) @function)
