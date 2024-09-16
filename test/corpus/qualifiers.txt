@@ -1,0 +1,59 @@
+===
+Qualifiers
+===
+
+pure fn function_one_qualifier {
+}
+
+pure static fn function_multiple_qualifiers {
+}
+
+pure static proto extern_function
+
+static let variable_one_qualifier = 1
+
+---
+
+(source_file
+	(statement
+		(function_declaration
+			qualifiers: (qualifier_list
+				(qualifier)
+			)
+			name: (identifier)
+			body: (block)
+		)
+	)
+	(statement
+		(function_declaration
+			qualifiers: (qualifier_list
+				(qualifier)
+				(qualifier)
+			)
+			name: (identifier)
+			body: (block)
+		)
+	)
+	(statement
+		(proto
+			qualifiers: (qualifier_list
+				(qualifier)
+				(qualifier)
+			)
+			name: (identifier)
+		)
+	)
+	(statement
+		(var_decl
+			qualifiers: (qualifier_list
+				(qualifier)
+			)
+			name: (identifier)
+			initial: (expression
+				(literal
+					(number)
+				)
+			)
+		)
+	)
+)
