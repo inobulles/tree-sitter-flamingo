@@ -70,4 +70,4 @@ pnpm format
 
 ## Roadmap
 
-- [ ] Unit tests for highlighting. See <https://tree-sitter.github.io/tree-sitter/syntax-highlighting#unit-testing>.
+-  [ ] Unit tests for highlighting. See <https://tree-sitter.github.io/tree-sitter/syntax-highlighting#unit-testing>.

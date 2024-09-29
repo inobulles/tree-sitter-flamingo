@@ -31,11 +31,6 @@
 		"fields": {}
 	},
 	{
-		"type": "and_operator",
-		"named": true,
-		"fields": {}
-	},
-	{
 		"type": "arg_list",
 		"named": true,
 		"fields": {},
@@ -303,25 +298,6 @@
 				},
 				{
 					"type": "vec",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "expression_list",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "expression",
-					"named": true
-				},
-				{
-					"type": "expression_list",
 					"named": true
 				}
 			]
@@ -619,11 +595,6 @@
 		}
 	},
 	{
-		"type": "power_operator",
-		"named": true,
-		"fields": {}
-	},
-	{
 		"type": "primitive_type",
 		"named": true,
 		"fields": {}
@@ -893,11 +864,11 @@
 		"named": true,
 		"fields": {},
 		"children": {
-			"multiple": false,
+			"multiple": true,
 			"required": false,
 			"types": [
 				{
-					"type": "expression_list",
+					"type": "expression",
 					"named": true
 				}
 			]
@@ -924,10 +895,6 @@
 		"named": false
 	},
 	{
-		"type": "&&",
-		"named": false
-	},
-	{
 		"type": "(",
 		"named": false
 	},
@@ -937,10 +904,6 @@
 	},
 	{
 		"type": "*",
-		"named": false
-	},
-	{
-		"type": "**",
 		"named": false
 	},
 	{
@@ -1016,6 +979,10 @@
 		"named": false
 	},
 	{
+		"type": "and_operator",
+		"named": true
+	},
+	{
 		"type": "any",
 		"named": false
 	},
@@ -1073,6 +1040,10 @@
 	},
 	{
 		"type": "number",
+		"named": true
+	},
+	{
+		"type": "power_operator",
 		"named": true
 	},
 	{
