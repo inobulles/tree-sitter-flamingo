@@ -1,0 +1,58 @@
+===
+Indexing
+===
+
+a[69]
+x = (1 + 2)[69]
+
+---
+
+(source_file
+	(statement
+		(expression
+			(index
+				indexed: (expression
+					(identifier)
+				)
+				index: (expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(assignment
+			left: (identifier)
+			right: (expression
+				(index
+					indexed: (expression
+						(parenthesized_expression
+							expression: (expression
+								(binary_expression
+									left: (expression
+										(literal
+											(number)
+										)
+									)
+									operator: (additive_operator)
+									right: (expression
+										(literal
+											(number)
+										)
+									)
+								)
+							)
+						)
+					)
+					index: (expression
+						(literal
+							(number)
+						)
+					)
+				)
+			)
+		)
+	)
+)
