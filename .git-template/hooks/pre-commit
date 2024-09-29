@@ -22,6 +22,6 @@ fi
 
 git diff-index --check --cached $against --
 
-# Run `pnpm format:check` and fail if it fails.
+# Run formatter and fail if it fails.
 
-exec pnpm format:check
+exec prettier --check .
