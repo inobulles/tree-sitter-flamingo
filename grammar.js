@@ -187,7 +187,9 @@ module.exports = grammar({
 
 		overloadable_operator: _ => choice("++", "==="),
 		primitive_type: _ => choice("any", "int", "str", "bool", "void"),
-		identifier: $ => choice(/[_A-z][_A-z0-9]*/, $.primitive_type),
+		identifier: $ => choice(/[_a-zA-Z][_a-zA-Z0-9]*/, $.primitive_type),
+		// TODO Support arbitrary unicode identifiers.
+		// identifier: $ => choice(/[^\W0-9]\w*/, $.primitive_type),
 		number: _ => /\d+/,
 		string: _ => /"([^"\\]|\\.)*"/,
 		bool: _ => choice("true", "false", "error"),
