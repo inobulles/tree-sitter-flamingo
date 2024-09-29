@@ -1,0 +1,71 @@
+===
+Vector literals
+===
+
+[]
+[1]
+[1, 2, 3]
+[1, "test", 3]
+
+---
+
+(source_file
+	(statement
+		(expression
+			(vec)
+		)
+	)
+	(statement
+		(expression
+			(vec
+				(expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(vec
+				(expression
+					(literal
+						(number)
+					)
+				)
+				(expression
+					(literal
+						(number)
+					)
+				)
+				(expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(vec
+				(expression
+					(literal
+						(number)
+					)
+				)
+				(expression
+					(literal
+						(string)
+					)
+				)
+				(expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+)
