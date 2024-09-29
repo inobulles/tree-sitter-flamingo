@@ -14,7 +14,7 @@ export PATH=$PATH:~/.cargo/bin
 Run:
 
 ```console
-pnpm generate
+tree-sitter generate
 ```
 
 ## Testing
@@ -22,7 +22,7 @@ pnpm generate
 Run:
 
 ```console
-pnpm test
+tree-sitter test
 ```
 
 To quickly test highlighting of a single file, run:
@@ -65,7 +65,7 @@ More detail may be found in the ["Adding Parser"](https://github.com/nvim-treesi
 Run:
 
 ```console
-pnpm format
+prettier . --write
 ```
 
 ## Roadmap
