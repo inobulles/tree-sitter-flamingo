@@ -150,11 +150,11 @@ module.exports = grammar({
 
 		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
 
-		power_operator: _ => choice("**"),
+		power_operator: _ => "**",
 		multiplicative_operator: _ => choice("*", "/", "%"),
 		additive_operator: _ => choice("+", "-"),
 		comparative_operator: _ => choice("==", "!=", "<", "<=", ">", ">="),
-		and_operator: _ => choice("&&"),
+		and_operator: _ => "&&",
 		or_operator: _ => choice("||", "^^"),
 
 		binary_expression: $ => {
