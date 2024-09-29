@@ -1,0 +1,72 @@
+===
+Slicing
+===
+
+a[69: 420]
+a[69:]
+a[:420]
+a[:] # Bit of a useless operator but hey, it's valid.
+
+---
+
+(source_file
+	(statement
+		(expression
+			(slice
+				indexed: (expression
+					(identifier)
+				)
+				slice_begin: (expression
+					(literal
+						(number)
+					)
+				)
+				slice_end: (expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(slice
+				indexed: (expression
+					(identifier)
+				)
+				slice_begin: (expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(slice
+				indexed: (expression
+					(identifier)
+				)
+				slice_end: (expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(slice
+				indexed: (expression
+					(identifier)
+				)
+			)
+		)
+	)
+	(statement
+		(comment)
+	)
+)
