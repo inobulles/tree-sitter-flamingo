@@ -179,8 +179,7 @@ module.exports = grammar({
 			)
 		},
 
-		expression_list: $ => choice($.expression, seq($.expression, ",", $.expression_list)),
-		vec: $ => seq("[", optional($.expression_list), "]"),
+		vec: $ => seq("[", optional(comma_sep($.expression)), "]"),
 
 		map_item: $ => seq(field("key", $.expression), ":", field("value", $.expression)),
 		map_item_list: $ => choice($.map_item, seq($.map_item, ",", $.map_item_list)),
