@@ -751,7 +751,7 @@
 			},
 			"slice_begin": {
 				"multiple": false,
-				"required": true,
+				"required": false,
 				"types": [
 					{
 						"type": "expression",
@@ -761,7 +761,7 @@
 			},
 			"slice_end": {
 				"multiple": false,
-				"required": true,
+				"required": false,
 				"types": [
 					{
 						"type": "expression",

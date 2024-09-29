@@ -189,9 +189,9 @@ module.exports = grammar({
 				seq(
 					field("indexed", $.expression),
 					"[",
-					field("slice_begin", $.expression),
+					optional(field("slice_begin", $.expression)),
 					":",
-					field("slice_end", $.expression),
+					optional(field("slice_end", $.expression)),
 					"]",
 				),
 			),
