@@ -285,6 +285,10 @@
 					"named": true
 				},
 				{
+					"type": "index",
+					"named": true
+				},
+				{
 					"type": "literal",
 					"named": true
 				},
@@ -294,6 +298,10 @@
 				},
 				{
 					"type": "parenthesized_expression",
+					"named": true
+				},
+				{
+					"type": "slice",
 					"named": true
 				},
 				{
@@ -434,6 +442,32 @@
 		"type": "import_relative_dot",
 		"named": true,
 		"fields": {}
+	},
+	{
+		"type": "index",
+		"named": true,
+		"fields": {
+			"index": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			},
+			"indexed": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			}
+		}
 	},
 	{
 		"type": "literal",
@@ -692,6 +726,42 @@
 			"rv": {
 				"multiple": false,
 				"required": false,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			}
+		}
+	},
+	{
+		"type": "slice",
+		"named": true,
+		"fields": {
+			"indexed": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			},
+			"slice_begin": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			},
+			"slice_end": {
+				"multiple": false,
+				"required": true,
 				"types": [
 					{
 						"type": "expression",

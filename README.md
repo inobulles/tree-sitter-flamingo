@@ -65,7 +65,8 @@ More detail may be found in the ["Adding Parser"](https://github.com/nvim-treesi
 Run:
 
 ```console
-prettier . --write
+pnpm i
+pnpm prettier . --write
 ```
 
 ## Roadmap

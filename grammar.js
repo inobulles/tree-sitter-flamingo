@@ -119,6 +119,8 @@ module.exports = grammar({
 					$.vec,
 					$.map,
 					$.binary_expression,
+					$.index,
+					$.slice,
 				),
 			),
 
@@ -180,6 +182,19 @@ module.exports = grammar({
 		},
 
 		vec: $ => seq("[", optional(comma_sep($.expression)), "]"),
+		index: $ => prec(PREC.call, seq(field("indexed", $.expression), "[", field("index", $.expression), "]")),
+		slice: $ =>
+			prec(
+				PREC.call,
+				seq(
+					field("indexed", $.expression),
+					"[",
+					field("slice_begin", $.expression),
+					":",
+					field("slice_end", $.expression),
+					"]",
+				),
+			),
 
 		map_item: $ => seq(field("key", $.expression), ":", field("value", $.expression)),
 		map_item_list: $ => choice($.map_item, seq($.map_item, ",", $.map_item_list)),
