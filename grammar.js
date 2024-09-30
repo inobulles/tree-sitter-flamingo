@@ -2,6 +2,7 @@
 // v. 1.0. Copyright (c) 2024 Aymeric Wibo
 
 const PREC = {
+	literal: 100,
 	access: 90,
 	call: 80,
 	unary: 70,
@@ -23,12 +24,17 @@ function comma_sep(rule) {
 module.exports = grammar({
 	name: "flamingo",
 
-	// No one should be using CRLF's, but just in case this removes CR's.
+	// No one should be using CRLF's, but just in case, this removes CR's.
 
 	// extras: _ => ["\r"],
 
 	rules: {
-		source_file: $ => repeat($.statement),
+		source_file: $ => optional($._statement_list),
+
+		_statement_list: $ =>
+			repeat1(
+				choice(seq($.statement, choice($._line_insensitive_statement, ";", "\n")), $._line_insensitive_statement),
+			),
 
 		comment: _ => token(seq("#", /[^#].*/)),
 		doc_comment: $ => seq("##", $.doc_comment_content),
@@ -40,25 +46,13 @@ module.exports = grammar({
 		// doc_comment: $ => seq("/*", $.doc_comment_content, "/"),
 		// doc_comment_content: _ => /[^*]*\*+([^/*][^*]*\*+)*/,
 
-		statement: $ =>
-			choice(
-				$.comment,
-				$.doc_comment,
-				$.block,
-				$.expression,
-				$.print,
-				$.assert,
-				$.return,
-				$.assignment,
-				$.import,
-				$.var_decl,
-				$.function_declaration,
-				$.class_declaration,
-				$.proto,
-				$.return,
-			),
+		_line_insensitive_statement: $ =>
+			choice($.comment, $.doc_comment, $.block, $.function_declaration, $.class_declaration),
 
-		block: $ => seq("{", field("body", repeat($.statement)), "}"),
+		statement: $ =>
+			choice($.expression, $.print, $.assert, $.return, $.assignment, $.import, $.var_decl, $.proto, $.return),
+
+		block: $ => seq("{", optional(field("body", choice($._statement_list, $.statement))), "}"),
 
 		import: $ => seq("import", optional(field("relative", $.import_relative_dot)), field("path", $.import_path)),
 		import_path: $ => seq(field("bit", $.identifier), optional(seq(".", field("rest", $.import_path)))),
@@ -66,19 +60,6 @@ module.exports = grammar({
 
 		qualifier: _ => choice("static", "pure"),
 		qualifier_list: $ => repeat1($.qualifier),
-
-		function_declaration: $ =>
-			prec(
-				100,
-				seq(
-					field("qualifiers", optional($.qualifier_list)),
-					"fn",
-					field("name", choice($.identifier, $.overloadable_operator)),
-					optional(seq("(", optional(field("params", $.param_list)), ")")),
-					optional(seq("->", field("ret_type", $.type))),
-					field("body", $.block),
-				),
-			),
 
 		proto: $ =>
 			prec.right(
@@ -91,12 +72,23 @@ module.exports = grammar({
 				),
 			),
 
+		function_declaration: $ =>
+			seq(
+				field("qualifiers", optional($.qualifier_list)),
+				"fn",
+				field("name", choice($.identifier, $.overloadable_operator)),
+				optional(seq("(", optional(field("params", $.param_list)), ")")),
+				optional(seq("->", field("ret_type", $.type))),
+				field("body", $.block),
+			),
+
+		/*
 		function_expression: $ =>
 			seq("fn", optional(seq("(", optional(field("params", $.param_list)), ")")), field("body", $.statement)),
+		*/
 
 		class_declaration: $ =>
 			seq(
-				field("qualifiers", optional($.qualifier_list)),
 				"class",
 				field("name", $.identifier),
 				optional(seq("(", optional(field("params", $.param_list)), ")")),
@@ -105,23 +97,20 @@ module.exports = grammar({
 
 		print: $ => seq("print", field("msg", $.expression)),
 		assert: $ => seq("assert", field("test", $.expression)),
-		return: $ => seq("return", choice(field("rv", $.expression), "\n")),
+		return: $ => seq("return", optional(field("rv", $.expression))),
 
 		expression: $ =>
-			prec(
-				-1,
-				choice(
-					$.identifier,
-					$.literal,
-					$.call,
-					$.access,
-					$.parenthesized_expression,
-					$.vec,
-					$.map,
-					$.binary_expression,
-					$.index,
-					$.slice,
-				),
+			choice(
+				$.identifier,
+				$.literal,
+				$.call,
+				$.access,
+				$.parenthesized_expression,
+				$.vec,
+				// $.map,
+				$.binary_expression,
+				$.index,
+				$.slice,
 			),
 
 		parenthesized_expression: $ => seq("(", field("expression", $.expression), ")"),
@@ -196,9 +185,9 @@ module.exports = grammar({
 				),
 			),
 
-		map_item: $ => seq(field("key", $.expression), ":", field("value", $.expression)),
-		map_item_list: $ => choice($.map_item, seq($.map_item, ",", $.map_item_list)),
-		map: $ => prec(-1, seq("{", optional($.map_item_list), "}")),
+		// map_item: $ => seq(field("key", $.expression), ":", field("value", $.expression)),
+		// map_item_list: $ => choice($.map_item, seq($.map_item, ",", $.map_item_list)),
+		// map: $ => prec(-1, seq("{", optional($.map_item_list), "}")),
 
 		overloadable_operator: _ => choice("++", "==="),
 		primitive_type: _ => choice("any", "int", "str", "bool", "void"),
