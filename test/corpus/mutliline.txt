@@ -1,0 +1,109 @@
+===
+Multiline tests
+===
+
+[
+	1,
+	2,
+	3,
+]
+
+fn params_over_multiple_lines(
+	param1,
+	param2,
+	param3,
+) {
+}
+
+{ print "inside block" } print "outside block"
+print "outside block" { print "inside block" }
+
+return; return pure fn test {}
+
+---
+
+(source_file
+	(statement
+		(expression
+			(vec
+				(expression
+					(literal
+						(number)
+					)
+				)
+				(expression
+					(literal
+						(number)
+					)
+				)
+				(expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(function_declaration
+		name: (identifier)
+		params: (param_list
+			(param ident: (identifier))
+			(param ident: (identifier))
+			(param ident: (identifier))
+		)
+		body: (block)
+	)
+	(block
+		body: (statement
+			(print
+				msg: (expression
+					(literal
+						(string)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(print
+			msg: (expression
+				(literal
+					(string)
+				)
+			)
+		)
+	)
+	(statement
+		(print
+			msg: (expression
+				(literal
+					(string)
+				)
+			)
+		)
+	)
+	(block
+		body: (statement
+			(print
+				msg: (expression
+					(literal
+						(string)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(return)
+	)
+	(statement
+		(return)
+	)
+	(function_declaration
+		qualifiers: (qualifier_list
+			(qualifier)
+		)
+		name: (identifier)
+		body: (block)
+	)
+)
