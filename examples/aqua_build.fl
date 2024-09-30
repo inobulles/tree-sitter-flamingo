@@ -1,0 +1,19 @@
+# This Source Form is subject to the terms of the AQUA Software License,
+# v. 1.0. Copyright (c) 2024 Aymeric Wibo
+
+import bob
+
+let app = App(Go().build())
+
+app.name = "AQUA Program Example"
+app.description = "An example AQUA program written in Go."
+app.version = "0.1.0"
+app.authors = [
+	"Aymeric Wibo <aym@obiw.ac>",
+]
+
+let run = app.run
+
+install = {
+	app.pack(): "apps/program_example.app",
+}
