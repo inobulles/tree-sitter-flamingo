@@ -3,7 +3,9 @@ Indexing
 ===
 
 a[69]
-_ = (1 + 2)[69]
+(1 + 2)[69]
+
+[1, 2][3]
 
 ---
 
@@ -23,33 +25,55 @@ _ = (1 + 2)[69]
 		)
 	)
 	(statement
-		(assignment
-			left: (identifier)
-			right: (expression
-				(index
-					indexed: (expression
-						(parenthesized_expression
-							expression: (expression
-								(binary_expression
-									left: (expression
-										(literal
-											(number)
-										)
+		(expression
+			(index
+				indexed: (expression
+					(parenthesized_expression
+						expression: (expression
+							(binary_expression
+								left: (expression
+									(literal
+										(number)
 									)
-									operator: (additive_operator)
-									right: (expression
-										(literal
-											(number)
-										)
+								)
+								operator: (additive_operator)
+								right: (expression
+									(literal
+										(number)
 									)
 								)
 							)
 						)
 					)
-					index: (expression
-						(literal
-							(number)
+				)
+				index: (expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(index
+				indexed: (expression
+					(vec
+						(expression
+							(literal
+								(number)
+							)
 						)
+						(expression
+							(literal
+								(number)
+							)
+						)
+					)
+				)
+				index: (expression
+					(literal
+						(number)
 					)
 				)
 			)

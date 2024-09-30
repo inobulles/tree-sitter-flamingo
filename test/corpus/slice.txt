@@ -66,7 +66,5 @@ a[:] # Bit of a useless operator but hey, it's valid.
 			)
 		)
 	)
-	(statement
-		(comment)
-	)
+	(comment)
 )

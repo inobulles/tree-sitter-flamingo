@@ -33,9 +33,7 @@ a = 420
 			)
 		)
 	)
-	(statement
-		(comment)
-	)
+	(comment)
 	(statement
 		(return)
 	)

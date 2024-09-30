@@ -25,125 +25,115 @@ fn function_with_types(a: str, b: str) -> str {
 ---
 
 (source_file
-	(statement
-		(function_declaration
-			name: (identifier)
-			body: (block
-				body: (statement
-					(print
-						msg: (expression
-							(literal
-								(string)
-							)
+	(function_declaration
+		name: (identifier)
+		body: (block
+			body: (statement
+				(print
+					msg: (expression
+						(literal
+							(string)
 						)
 					)
 				)
 			)
 		)
 	)
-	(statement
-		(function_declaration
-			name: (identifier)
-			body: (block
-				body: (statement
-					(print
-						msg: (expression
-							(literal
-								(string)
-							)
+	(function_declaration
+		name: (identifier)
+		body: (block
+			body: (statement
+				(print
+					msg: (expression
+						(literal
+							(string)
 						)
 					)
 				)
 			)
 		)
 	)
-	(statement
-		(function_declaration
-			name: (identifier)
-			params: (param_list
-				(param
-					ident: (identifier)
-				)
+	(function_declaration
+		name: (identifier)
+		params: (param_list
+			(param
+				ident: (identifier)
 			)
-			body: (block
-				body: (statement
-					(print
-						msg: (expression
-							(literal
-								(string)
-							)
+		)
+		body: (block
+			body: (statement
+				(print
+					msg: (expression
+						(literal
+							(string)
 						)
 					)
 				)
 			)
 		)
 	)
-	(statement
-		(function_declaration
-			name: (identifier)
-			params: (param_list
-				(param
-					ident: (identifier)
-				)
-				(param
-					ident: (identifier)
-				)
-				(param
-					ident: (identifier)
-				)
+	(function_declaration
+		name: (identifier)
+		params: (param_list
+			(param
+				ident: (identifier)
 			)
-			body: (block
-				body: (statement
-					(print
-						msg: (expression
-							(literal
-								(string)
-							)
+			(param
+				ident: (identifier)
+			)
+			(param
+				ident: (identifier)
+			)
+		)
+		body: (block
+			body: (statement
+				(print
+					msg: (expression
+						(literal
+							(string)
 						)
 					)
 				)
 			)
 		)
 	)
-	(statement
-		(function_declaration
-			name: (identifier)
-			params: (param_list
-				(param
-					ident: (identifier)
-					type: (type
-						(type_name
-							(identifier
-								(primitive_type)
-							)
-						)
-					)
-				)
-				(param
-					ident: (identifier)
-					type: (type
-						(type_name
-							(identifier
-								(primitive_type)
-							)
+	(function_declaration
+		name: (identifier)
+		params: (param_list
+			(param
+				ident: (identifier)
+				type: (type
+					(type_name
+						(identifier
+							(primitive_type)
 						)
 					)
 				)
 			)
-			ret_type: (type
-				(type_name
-					(identifier
-						(primitive_type)
+			(param
+				ident: (identifier)
+				type: (type
+					(type_name
+						(identifier
+							(primitive_type)
+						)
 					)
 				)
 			)
-			body: (block
-				body: (statement
-					(return
-						rv: (expression
-							(literal
-								(string)
-							)
+		)
+		ret_type: (type
+			(type_name
+				(identifier
+					(primitive_type)
+				)
+			)
+		)
+		body: (block
+			body: (statement
+				(return
+					rv: (expression
+						(literal
+							(string)
 						)
 					)
 				)

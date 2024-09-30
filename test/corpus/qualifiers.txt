@@ -15,24 +15,20 @@ static let variable_one_qualifier = 1
 ---
 
 (source_file
-	(statement
-		(function_declaration
-			qualifiers: (qualifier_list
-				(qualifier)
-			)
-			name: (identifier)
-			body: (block)
+	(function_declaration
+		qualifiers: (qualifier_list
+			(qualifier)
 		)
+		name: (identifier)
+		body: (block)
 	)
-	(statement
-		(function_declaration
-			qualifiers: (qualifier_list
-				(qualifier)
-				(qualifier)
-			)
-			name: (identifier)
-			body: (block)
+	(function_declaration
+		qualifiers: (qualifier_list
+			(qualifier)
+			(qualifier)
 		)
+		name: (identifier)
+		body: (block)
 	)
 	(statement
 		(proto

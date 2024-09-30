@@ -29,43 +29,35 @@ class WithParameters(x: int, y) {
 ---
 
 (source_file
-	(statement
-		(class_declaration
-			(identifier)
-			(block)
-		)
+	(class_declaration
+		(identifier)
+		(block)
 	)
-	(statement
-		(class_declaration
-			(identifier)
-			(block
-				(statement
-					(function_declaration
-						(identifier)
-						(block
-							(statement
-								(print
-									(expression
-										(literal
-											(string)
-										)
-									)
+	(class_declaration
+		(identifier)
+		(block
+			(function_declaration
+				(identifier)
+				(block
+					(statement
+						(print
+							(expression
+								(literal
+									(string)
 								)
 							)
 						)
 					)
 				)
-				(statement
-					(function_declaration
-						(identifier)
-						(block
-							(statement
-								(print
-									(expression
-										(literal
-											(string)
-										)
-									)
+			)
+			(function_declaration
+				(identifier)
+				(block
+					(statement
+						(print
+							(expression
+								(literal
+									(string)
 								)
 							)
 						)
@@ -74,48 +66,40 @@ class WithParameters(x: int, y) {
 			)
 		)
 	)
-	(statement
-		(comment)
-	)
-	(statement
-		(class_declaration
-			(identifier)
-			(ERROR)
-			(block
-				(statement
-					(print
-						(expression
-							(literal
-								(string)
-							)
+	(comment)
+	(class_declaration
+		(identifier)
+		(ERROR)
+		(block
+			(statement
+				(print
+					(expression
+						(literal
+							(string)
 						)
 					)
 				)
 			)
 		)
 	)
-	(statement
-		(comment)
-	)
-	(statement
-		(class_declaration
-			(identifier)
-			(param_list
-				(param
-					(identifier)
-					(type
-						(type_name
-							(identifier
-								(primitive_type)
-							)
+	(comment)
+	(class_declaration
+		(identifier)
+		(param_list
+			(param
+				(identifier)
+				(type
+					(type_name
+						(identifier
+							(primitive_type)
 						)
 					)
 				)
-				(param
-					(identifier)
-				)
 			)
-			(block)
+			(param
+				(identifier)
+			)
 		)
+		(block)
 	)
 )

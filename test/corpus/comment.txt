@@ -13,13 +13,9 @@ print "Hello world!" # This is a regular comment on the same line as a statement
 ---
 
 (source_file
-	(statement
-		(comment)
-	)
-	(statement
-		(doc_comment
-			(doc_comment_content)
-		)
+	(comment)
+	(doc_comment
+		(doc_comment_content)
 	)
 	(statement
 		(print
@@ -30,14 +26,8 @@ print "Hello world!" # This is a regular comment on the same line as a statement
 			)
 		)
 	)
-	(statement
-		(comment)
-	)
-	(statement
-		(block
-			body: (statement
-				(comment)
-			)
-		)
+	(comment)
+	(block
+		body: (comment)
 	)
 )

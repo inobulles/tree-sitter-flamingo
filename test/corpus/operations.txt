@@ -26,9 +26,7 @@ Operations
 			)
 		)
 	)
-	(statement
-		(comment)
-	)
+	(comment)
 	(statement
 		(expression
 			(binary_expression
@@ -56,9 +54,7 @@ Operations
 			)
 		)
 	)
-	(statement
-		(comment)
-	)
+	(comment)
 	(statement
 		(expression
 			(binary_expression
@@ -86,7 +82,5 @@ Operations
 			)
 		)
 	)
-	(statement
-		(comment)
-	)
+	(comment)
 )

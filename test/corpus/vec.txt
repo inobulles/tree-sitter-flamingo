@@ -2,79 +2,67 @@
 Vector literals
 ===
 
-_ = []
-_ = [1]
-_ = [1, 2, 3]
-_ = [1, "test", 3]
+[]
+[1]
+[1, 2, 3]
+[1, "test", 3]
 
 ---
 
 (source_file
 	(statement
-		(assignment
-			left: (identifier)
-			right: (expression
-				(vec)
-			)
+		(expression
+			(vec)
 		)
 	)
 	(statement
-		(assignment
-			left: (identifier)
-			right: (expression
-				(vec
-					(expression
-						(literal
-							(number)
-						)
+		(expression
+			(vec
+				(expression
+					(literal
+						(number)
 					)
 				)
 			)
 		)
 	)
 	(statement
-		(assignment
-			left: (identifier)
-			right: (expression
-				(vec
-					(expression
-						(literal
-							(number)
-						)
+		(expression
+			(vec
+				(expression
+					(literal
+						(number)
 					)
-					(expression
-						(literal
-							(number)
-						)
+				)
+				(expression
+					(literal
+						(number)
 					)
-					(expression
-						(literal
-							(number)
-						)
+				)
+				(expression
+					(literal
+						(number)
 					)
 				)
 			)
 		)
 	)
 	(statement
-		(assignment
-			left: (identifier)
-			right: (expression
-				(vec
-					(expression
-						(literal
-							(number)
-						)
+		(expression
+			(vec
+				(expression
+					(literal
+						(number)
 					)
-					(expression
-						(literal
-							(string)
-						)
+				)
+				(expression
+					(literal
+						(string)
 					)
-					(expression
-						(literal
-							(number)
-						)
+				)
+				(expression
+					(literal
+						(number)
 					)
 				)
 			)
