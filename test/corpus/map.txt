@@ -1,0 +1,99 @@
+===
+Map literals
+===
+
+{}
+{
+	"key": 1
+}
+{
+	"key": 1,
+	"key2": 2,
+}
+return {}
+return {"key": 1}
+
+---
+
+(source_file
+	(statement
+		(expression
+			(map)
+		)
+	)
+	(statement
+		(expression
+			(map
+				(map_item
+					key: (expression
+						(literal
+							(string)
+						)
+					)
+					value: (expression
+						(literal
+							(number)
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(map
+				(map_item
+					key: (expression
+						(literal
+							(string)
+						)
+					)
+					value: (expression
+						(literal
+							(number)
+						)
+					)
+				)
+				(map_item
+					key: (expression
+						(literal
+							(string)
+						)
+					)
+					value: (expression
+						(literal
+							(number)
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(return
+			rv: (expression
+				(map)
+			)
+		)
+	)
+	(statement
+		(return
+			rv: (expression
+				(map
+					(map_item
+						key: (expression
+							(literal
+								(string)
+							)
+						)
+						value: (expression
+							(literal
+								(number)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
