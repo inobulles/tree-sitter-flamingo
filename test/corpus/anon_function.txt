@@ -1,0 +1,89 @@
+===
+Anonymous functions (lambdas)
+===
+
+let x = || 4 + 2
+let y = |a, b| a + b
+let z = |a, b| {
+	 let c = a + b
+	 return c * 2
+}
+
+---
+
+(source_file
+	(statement
+		(var_decl
+			name: (identifier)
+			initial: (expression
+				(lambda
+					body: (expression
+						(binary_expression
+							left: (expression (literal (number)))
+							operator: (additive_operator)
+							right: (expression (literal (number)))
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(var_decl
+			name: (identifier)
+			initial: (expression
+				(lambda
+					params: (param_list
+						(param ident: (identifier))
+						(param ident: (identifier))
+					)
+					body: (expression
+						(binary_expression
+							left: (expression (identifier))
+							operator: (additive_operator)
+							right: (expression (identifier))
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(var_decl
+			name: (identifier)
+			initial: (expression
+				(lambda
+					params: (param_list
+						(param ident: (identifier))
+						(param ident: (identifier))
+					)
+					body: (block
+						body: (statement
+							(var_decl
+								name: (identifier)
+								initial: (expression
+									(binary_expression
+										left: (expression (identifier))
+										operator: (additive_operator)
+										right: (expression (identifier))
+									)
+								)
+							)
+						)
+						body: (statement
+							(return
+								rv: (expression
+									(binary_expression
+										left: (expression (identifier))
+										operator: (multiplicative_operator)
+										right: (expression (literal (number)))
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
