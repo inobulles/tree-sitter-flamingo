@@ -315,6 +315,10 @@
 					"named": true
 				},
 				{
+					"type": "map",
+					"named": true
+				},
+				{
 					"type": "parenthesized_expression",
 					"named": true
 				},
@@ -546,6 +550,47 @@
 					"named": true
 				}
 			]
+		}
+	},
+	{
+		"type": "map",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": false,
+			"types": [
+				{
+					"type": "map_item",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "map_item",
+		"named": true,
+		"fields": {
+			"key": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			},
+			"value": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			}
 		}
 	},
 	{

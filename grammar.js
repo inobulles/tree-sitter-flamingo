@@ -94,7 +94,7 @@ module.exports = grammar({
 
 		print: $ => seq("print", field("msg", $.expression)),
 		assert: $ => seq("assert", field("test", $.expression)),
-		return: $ => seq("return", optional(field("rv", $.expression))),
+		return: $ => prec.right(seq("return", optional(field("rv", $.expression)))),
 
 		// TODO Should we make expression a hidden node?
 
@@ -106,7 +106,7 @@ module.exports = grammar({
 				$.access,
 				$.parenthesized_expression,
 				$.vec,
-				// $.map,
+				$.map,
 				$.unary_expression,
 				$.binary_expression,
 				$.index,
@@ -187,9 +187,8 @@ module.exports = grammar({
 				),
 			),
 
-		// map_item: $ => seq(field("key", $.expression), ":", field("value", $.expression)),
-		// map_item_list: $ => choice($.map_item, seq($.map_item, ",", $.map_item_list)),
-		// map: $ => prec(-1, seq("{", optional($.map_item_list), "}")),
+		map_item: $ => seq(field("key", $.expression), ":", field("value", $.expression)),
+		map: $ => prec(PREC.literal, seq("{", optional(comma_sep($.map_item)), "}")),
 
 		overloadable_operator: _ => choice("++", "==="),
 		primitive_type: _ => choice("any", "int", "str", "bool", "void"),
