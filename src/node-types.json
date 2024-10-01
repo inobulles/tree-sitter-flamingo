@@ -319,6 +319,10 @@
 					"named": true
 				},
 				{
+					"type": "unary_expression",
+					"named": true
+				},
+				{
 					"type": "vec",
 					"named": true
 				}
@@ -836,6 +840,37 @@
 				}
 			]
 		}
+	},
+	{
+		"type": "unary_expression",
+		"named": true,
+		"fields": {
+			"expression": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			},
+			"operator": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "unary_operator",
+						"named": true
+					}
+				]
+			}
+		}
+	},
+	{
+		"type": "unary_operator",
+		"named": true,
+		"fields": {}
 	},
 	{
 		"type": "var_decl",

@@ -99,6 +99,8 @@ module.exports = grammar({
 		assert: $ => seq("assert", field("test", $.expression)),
 		return: $ => seq("return", optional(field("rv", $.expression))),
 
+		// TODO Should we make expression a hidden node?
+
 		expression: $ =>
 			choice(
 				$.identifier,
@@ -108,6 +110,7 @@ module.exports = grammar({
 				$.parenthesized_expression,
 				$.vec,
 				// $.map,
+				$.unary_expression,
 				$.binary_expression,
 				$.index,
 				$.slice,
@@ -139,7 +142,8 @@ module.exports = grammar({
 			),
 		assignment: $ => seq(field("left", choice($.access, $.identifier)), "=", field("right", $.expression)),
 
-		unary_expression: $ => choice(seq("-", $.expression), seq("!", $.expression)),
+		unary_operator: _ => choice("-", "!"),
+		unary_expression: $ => seq(field("operator", $.unary_operator), field("expression", $.expression)),
 
 		power_operator: _ => "**",
 		multiplicative_operator: _ => choice("*", "/", "%"),

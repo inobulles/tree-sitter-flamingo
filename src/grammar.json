@@ -653,6 +653,10 @@
 				},
 				{
 					"type": "SYMBOL",
+					"name": "unary_expression"
+				},
+				{
+					"type": "SYMBOL",
 					"name": "binary_expression"
 				},
 				{
@@ -1095,34 +1099,37 @@
 				}
 			]
 		},
-		"unary_expression": {
+		"unary_operator": {
 			"type": "CHOICE",
 			"members": [
 				{
-					"type": "SEQ",
-					"members": [
-						{
-							"type": "STRING",
-							"value": "-"
-						},
-						{
-							"type": "SYMBOL",
-							"name": "expression"
-						}
-					]
+					"type": "STRING",
+					"value": "-"
 				},
 				{
-					"type": "SEQ",
-					"members": [
-						{
-							"type": "STRING",
-							"value": "!"
-						},
-						{
-							"type": "SYMBOL",
-							"name": "expression"
-						}
-					]
+					"type": "STRING",
+					"value": "!"
+				}
+			]
+		},
+		"unary_expression": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "FIELD",
+					"name": "operator",
+					"content": {
+						"type": "SYMBOL",
+						"name": "unary_operator"
+					}
+				},
+				{
+					"type": "FIELD",
+					"name": "expression",
+					"content": {
+						"type": "SYMBOL",
+						"name": "expression"
+					}
 				}
 			]
 		},
