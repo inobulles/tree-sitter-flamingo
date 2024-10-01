@@ -29,16 +29,16 @@
 								"type": "CHOICE",
 								"members": [
 									{
-										"type": "SYMBOL",
-										"name": "_line_insensitive_statement"
-									},
-									{
 										"type": "STRING",
 										"value": ";"
 									},
 									{
 										"type": "STRING",
 										"value": "\n"
+									},
+									{
+										"type": "SYMBOL",
+										"name": "_line_insensitive_statement"
 									}
 								]
 							}

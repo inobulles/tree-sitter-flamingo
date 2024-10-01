@@ -33,7 +33,7 @@ module.exports = grammar({
 
 		_statement_list: $ =>
 			repeat1(
-				choice(seq($.statement, choice($._line_insensitive_statement, ";", "\n")), $._line_insensitive_statement),
+				choice(seq($.statement, choice(";", "\n", $._line_insensitive_statement)), $._line_insensitive_statement),
 			),
 
 		comment: _ => token(seq("#", /[^#].*/)),
