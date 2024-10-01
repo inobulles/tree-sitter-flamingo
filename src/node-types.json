@@ -307,6 +307,10 @@
 					"named": true
 				},
 				{
+					"type": "lambda",
+					"named": true
+				},
+				{
 					"type": "literal",
 					"named": true
 				},
@@ -481,6 +485,36 @@
 				"types": [
 					{
 						"type": "expression",
+						"named": true
+					}
+				]
+			}
+		}
+	},
+	{
+		"type": "lambda",
+		"named": true,
+		"fields": {
+			"body": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "block",
+						"named": true
+					},
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			},
+			"params": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "param_list",
 						"named": true
 					}
 				]
@@ -1151,6 +1185,10 @@
 	},
 	{
 		"type": "{",
+		"named": false
+	},
+	{
+		"type": "|",
 		"named": false
 	},
 	{

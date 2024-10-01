@@ -82,10 +82,7 @@ module.exports = grammar({
 				field("body", $.block),
 			),
 
-		/*
-		function_expression: $ =>
-			seq("fn", optional(seq("(", optional(field("params", $.param_list)), ")")), field("body", $.statement)),
-		*/
+		lambda: $ => seq("|", optional(field("params", $.param_list)), "|", field("body", choice($.block, $.expression))),
 
 		class_declaration: $ =>
 			seq(
@@ -114,6 +111,7 @@ module.exports = grammar({
 				$.binary_expression,
 				$.index,
 				$.slice,
+				$.lambda,
 			),
 
 		parenthesized_expression: $ => seq("(", field("expression", $.expression), ")"),
