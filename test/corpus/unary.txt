@@ -1,0 +1,63 @@
+===
+Unary operators
+===
+
+-420
+1 + -2
+0 - 5
+
+---
+
+(source_file
+	(statement
+		(expression
+			(unary_expression
+				operator: (unary_operator)
+				expression: (expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(binary_expression
+				left: (expression
+					(literal
+						(number)
+					)
+				)
+				operator: (additive_operator)
+				right: (expression
+					(unary_expression
+						operator: (unary_operator)
+						expression: (expression
+							(literal
+								(number)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(statement
+		(expression
+			(binary_expression
+				left: (expression
+					(literal
+						(number)
+					)
+				)
+				operator: (additive_operator)
+				right: (expression
+					(literal
+						(number)
+					)
+				)
+			)
+		)
+	)
+)
