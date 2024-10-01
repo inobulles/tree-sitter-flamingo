@@ -1125,7 +1125,7 @@
 				},
 				{
 					"type": "FIELD",
-					"name": "expression",
+					"name": "operand",
 					"content": {
 						"type": "SYMBOL",
 						"name": "expression"

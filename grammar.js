@@ -143,7 +143,7 @@ module.exports = grammar({
 		assignment: $ => seq(field("left", choice($.access, $.identifier)), "=", field("right", $.expression)),
 
 		unary_operator: _ => choice("-", "!"),
-		unary_expression: $ => seq(field("operator", $.unary_operator), field("expression", $.expression)),
+		unary_expression: $ => seq(field("operator", $.unary_operator), field("operand", $.expression)),
 
 		power_operator: _ => "**",
 		multiplicative_operator: _ => choice("*", "/", "%"),

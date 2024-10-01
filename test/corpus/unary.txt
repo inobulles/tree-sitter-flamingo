@@ -13,7 +13,7 @@ Unary operators
 		(expression
 			(unary_expression
 				operator: (unary_operator)
-				expression: (expression
+				operand: (expression
 					(literal
 						(number)
 					)
@@ -33,7 +33,7 @@ Unary operators
 				right: (expression
 					(unary_expression
 						operator: (unary_operator)
-						expression: (expression
+						operand: (expression
 							(literal
 								(number)
 							)

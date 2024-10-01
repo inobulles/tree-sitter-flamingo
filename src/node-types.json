@@ -845,7 +845,7 @@
 		"type": "unary_expression",
 		"named": true,
 		"fields": {
-			"expression": {
+			"operand": {
 				"multiple": false,
 				"required": true,
 				"types": [
