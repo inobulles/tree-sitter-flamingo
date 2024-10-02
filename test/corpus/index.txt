@@ -4,8 +4,8 @@ Indexing
 
 a[69]
 (1 + 2)[69]
-
 [1, 2][3]
+a[69] = 420
 
 ---
 
@@ -77,6 +77,15 @@ a[69]
 					)
 				)
 			)
+		)
+	)
+	(statement
+		(assignment
+			left: (index
+				indexed: (expression (identifier))
+				index: (expression (literal (number)))
+			)
+			right: (expression (literal (number)))
 		)
 	)
 )

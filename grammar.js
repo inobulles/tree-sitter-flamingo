@@ -138,7 +138,7 @@ module.exports = grammar({
 				optional(seq(":", field("type", $.type))),
 				optional(seq("=", field("initial", $.expression))),
 			),
-		assignment: $ => seq(field("left", choice($.access, $.identifier)), "=", field("right", $.expression)),
+		assignment: $ => seq(field("left", choice($.index, $.access, $.identifier)), "=", field("right", $.expression)),
 
 		unary_operator: _ => choice("-", "!"),
 		unary_expression: $ => seq(field("operator", $.unary_operator), field("operand", $.expression)),

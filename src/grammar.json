@@ -1134,6 +1134,10 @@
 						"members": [
 							{
 								"type": "SYMBOL",
+								"name": "index"
+							},
+							{
+								"type": "SYMBOL",
 								"name": "access"
 							},
 							{
