@@ -176,14 +176,6 @@
 						"named": true
 					},
 					{
-						"type": "comment",
-						"named": true
-					},
-					{
-						"type": "doc_comment",
-						"named": true
-					},
-					{
 						"type": "function_declaration",
 						"named": true
 					},
@@ -826,14 +818,6 @@
 				},
 				{
 					"type": "class_declaration",
-					"named": true
-				},
-				{
-					"type": "comment",
-					"named": true
-				},
-				{
-					"type": "doc_comment",
 					"named": true
 				},
 				{
