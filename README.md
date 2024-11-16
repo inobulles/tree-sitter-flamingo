@@ -69,6 +69,12 @@ pnpm i
 pnpm prettier . --write
 ```
 
+You can also set up the pre-commit hook for this as such:
+
+```console
+cp .git{-template,}/hooks/pre-commit
+```
+
 ## Roadmap
 
 -  [ ] Unit tests for highlighting. See <https://tree-sitter.github.io/tree-sitter/syntax-highlighting#unit-testing>.
