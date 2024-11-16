@@ -24,9 +24,11 @@ function comma_sep(rule) {
 module.exports = grammar({
 	name: "flamingo",
 
-	// No one should be using CRLF's, but just in case, this removes CR's.
-
-	// extras: _ => ["\r"],
+	extras: $ => [
+		$.comment,
+		$.doc_comment,
+		/\s/, // No one should be using CRLF's, but just in case, this also removes CR's.
+	],
 
 	rules: {
 		source_file: $ => optional($._statement_list),
@@ -46,8 +48,7 @@ module.exports = grammar({
 		// doc_comment: $ => seq("/*", $.doc_comment_content, "/"),
 		// doc_comment_content: _ => /[^*]*\*+([^/*][^*]*\*+)*/,
 
-		_line_insensitive_statement: $ =>
-			choice($.comment, $.doc_comment, $.block, $.function_declaration, $.class_declaration),
+		_line_insensitive_statement: $ => choice($.block, $.function_declaration, $.class_declaration),
 
 		statement: $ =>
 			choice($.expression, $.print, $.assert, $.return, $.assignment, $.import, $.var_decl, $.proto, $.return),
