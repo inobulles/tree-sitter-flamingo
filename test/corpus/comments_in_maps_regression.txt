@@ -1,0 +1,27 @@
+===
+Comments in maps (regression test)
+===
+
+install = {
+	gvd: "bin/gvd",
+	# libgv: "lib/libgv.so",
+}
+
+---
+
+(source_file
+	(statement
+		(assignment
+			left: (identifier)
+			right: (expression
+				(map
+					(map_item
+						key: (expression (identifier))
+						value: (expression (literal (string)))
+					)
+					(comment)
+				)
+			)
+		)
+	)
+)
