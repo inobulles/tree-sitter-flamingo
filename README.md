@@ -77,4 +77,4 @@ cp .git{-template,}/hooks/pre-commit
 
 ## Roadmap
 
--  [ ] Unit tests for highlighting. See <https://tree-sitter.github.io/tree-sitter/syntax-highlighting#unit-testing>.
+- [ ] Unit tests for highlighting. See <https://tree-sitter.github.io/tree-sitter/syntax-highlighting#unit-testing>.
