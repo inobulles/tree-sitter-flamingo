@@ -3,6 +3,7 @@ Assertions
 ===
 
 assert pi == 3
+assert e == 3, "e should definitely be 3"
 
 ---
 
@@ -16,6 +17,18 @@ assert pi == 3
 					right: (expression (literal (number)))
 				)
 			)
+		)
+	)
+	(statement
+		(assert
+			test: (expression
+				(binary_expression
+					left: (expression (identifier))
+					operator: (comparative_operator)
+					right: (expression (literal (number)))
+				)
+			)
+			msg: (expression (literal (string)))
 		)
 	)
 )
