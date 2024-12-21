@@ -1,0 +1,21 @@
+===
+Assertions
+===
+
+assert pi == 3
+
+---
+
+(source_file
+	(statement
+		(assert
+			test: (expression
+				(binary_expression
+					left: (expression (identifier))
+					operator: (comparative_operator)
+					right: (expression (literal (number)))
+				)
+			)
+		)
+	)
+)
