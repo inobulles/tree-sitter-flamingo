@@ -49,6 +49,16 @@
 		"type": "assert",
 		"named": true,
 		"fields": {
+			"msg": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "expression",
+						"named": true
+					}
+				]
+			},
 			"test": {
 				"multiple": false,
 				"required": true,
