@@ -1,0 +1,126 @@
+===
+If/else statements
+===
+
+if a == 1 {
+	print "a is 1"
+}
+
+if a == 1 {
+	print "a is 1"
+}
+
+else {
+	print "a is not 1"
+}
+
+if a == 1 {
+	print "a is 1"
+}
+
+elif a == 2 {
+	print "a is 2"
+}
+
+elif a == 3 {
+	print "a is 3"
+}
+
+else {
+	print "a is not 1, 2, or 3"
+}
+
+---
+
+(source_file
+	(if_chain
+		condition: (expression
+			(binary_expression
+				left: (expression (identifier))
+				operator: (comparative_operator)
+				right: (expression (literal (number)))
+			)
+		)
+		body: (block
+			body: (statement
+				(print
+					msg: (expression (literal (string)))
+				)
+			)
+		)
+	)
+	(if_chain
+		condition: (expression
+			(binary_expression
+				left: (expression (identifier))
+				operator: (comparative_operator)
+				right: (expression (literal (number)))
+			)
+		)
+		body: (block
+			body: (statement
+				(print
+					msg: (expression (literal (string)))
+				)
+			)
+		)
+		else_body: (block
+			body: (statement
+				(print
+					msg: (expression (literal (string)))
+				)
+			)
+		)
+	)
+	(if_chain
+		condition: (expression
+			(binary_expression
+				left: (expression (identifier))
+				operator: (comparative_operator)
+				right: (expression (literal (number)))
+			)
+		)
+		body: (block
+			body: (statement
+				(print
+					msg: (expression (literal (string)))
+				)
+			)
+		)
+		elif_condition: (expression
+			(binary_expression
+				left: (expression (identifier))
+				operator: (comparative_operator)
+				right: (expression (literal (number)))
+			)
+		)
+		elif_body: (block
+			body: (statement
+				(print
+					msg: (expression (literal (string)))
+				)
+			)
+		)
+		elif_condition: (expression
+			(binary_expression
+				left: (expression (identifier))
+				operator: (comparative_operator)
+				right: (expression (literal (number)))
+			)
+		)
+		elif_body: (block
+			body: (statement
+				(print
+					msg: (expression (literal (string)))
+				)
+			)
+		)
+		else_body: (block
+			body: (statement
+				(print
+					msg: (expression (literal (string)))
+				)
+			)
+		)
+	)
+)
