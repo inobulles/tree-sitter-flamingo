@@ -30,17 +30,14 @@
 		"proseWrap": "never",
 		"endOfLine": "lf"
 	},
-	"tree-sitter": [
-		{
-			"scope": "source.fl",
-			"file-types": [
-				"fl"
-			],
-			"first-line-regex": "#!.*\\bflamingo$",
-			"highlights": [
-				"queries/highlights.scm"
-			]
-		}
+	"files": [
+		"grammar.js",
+		"binding.gyp",
+		"prebuilds/**",
+		"bindings/node/*",
+		"queries/*",
+		"src/**",
+		"*.wasm"
 	],
 	"dependencies": {
 		"node-gyp-build": "^4.8.1"
@@ -52,14 +49,5 @@
 		"tree_sitter": {
 			"optional": true
 		}
-	},
-	"files": [
-		"grammar.js",
-		"binding.gyp",
-		"prebuilds/**",
-		"bindings/node/*",
-		"queries/*",
-		"src/**",
-		"*.wasm"
-	]
+	}
 }
