@@ -5,34 +5,23 @@ import bob
 
 # C compilation.
 
+let lib_src = Fs.list("src/lib").where(|path| path.endswith(".c"))
+let cmd_src = Fs.list("src/cmd").where(|path| path.endswith(".c"))
+
 let cc = CC(["-Isrc", "-fPIC", "-std=c99", "-Wall", "-Wextra", "-Werror"])
 
-let lib_src = Fs.list("src/lib")
-	.where(fn(path) path.ends_with(".c"))
+# TODO Check that the lib and cmd sources are actually being compiled in parallel.
 
-let cmd_src = Fs.list("src/cmd")
-	.where(fn(path) path.ends_with(".c"))
-
-let src = lib_src + cmd_src
-src.map(cc.compile)
+let lib_obj = cc.compile(lib_src)
+let cmd_obj = cc.compile(cmd_src)
 
 # Create static & dynamic libraries and command-line frontend executable.
 
-let linker = Linker()
+let linker = Linker([])
 
-let archive = linker.static(lib_src)
-let dyn_lib = linker.dynamic(lib_src)
-let cmd = linker.link(cmd_src, ["iar"])
-
-# Add header as a resource.
-
-let header = Res.add("src/iar.h")
-
-# How to run the command-line frontend?
-
-fn run(args) {
-	return Sys.exec(cmd, args)
-}
+let archive = linker.static(lib_obj)
+let dyn_lib = linker.dynamic(lib_obj)
+let cmd = linker.link(cmd_obj, ["iar"])
 
 # Installation map.
 
@@ -42,3 +31,7 @@ install = {
 	dyn_lib: "lib/libiar.so",
 	header:  "include/iar.h",
 }
+
+# Default runner.
+
+run = ["iar"]
