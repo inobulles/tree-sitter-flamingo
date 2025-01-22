@@ -1,5 +1,5 @@
 // This Source Form is subject to the terms of the AQUA Software License,
-// v. 1.0. Copyright (c) 2024 Aymeric Wibo
+// v. 1.0. Copyright (c) 2024-2025 Aymeric Wibo
 
 const PREC = {
 	literal: 100,
@@ -48,7 +48,7 @@ module.exports = grammar({
 		// doc_comment: $ => seq("/*", $.doc_comment_content, "/"),
 		// doc_comment_content: _ => /[^*]*\*+([^/*][^*]*\*+)*/,
 
-		_line_insensitive_statement: $ => choice($.block, $.function_declaration, $.class_declaration),
+		_line_insensitive_statement: $ => choice($.block, $.function_declaration, $.class_declaration, $.if_chain),
 
 		statement: $ =>
 			choice($.expression, $.print, $.assert, $.return, $.assignment, $.import, $.var_decl, $.proto, $.return),
@@ -58,6 +58,15 @@ module.exports = grammar({
 		import: $ => seq("import", optional(field("relative", $.import_relative_dot)), field("path", $.import_path)),
 		import_path: $ => seq(field("bit", $.identifier), optional(seq(".", field("rest", $.import_path)))),
 		import_relative_dot: _ => ".",
+
+		if_chain: $ =>
+			seq(
+				"if",
+				field("condition", $.expression),
+				field("body", $.block),
+				repeat(seq("elif", field("elif_condition", $.expression), field("elif_body", $.block))),
+				optional(seq("else", field("else_body", $.block))),
+			),
 
 		qualifier: _ => choice("static", "pure"),
 		qualifier_list: $ => repeat1($.qualifier),
