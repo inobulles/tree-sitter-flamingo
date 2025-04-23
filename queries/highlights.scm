@@ -49,8 +49,8 @@
 	"elif"
 	"else"
 	"for"
-	"break"
-	"continue"
+	(break)
+	(continue)
 ] @keyword
 
 ; Builtins.
@@ -81,7 +81,7 @@
 
 ; For loops.
 
-(for
+(for_loop
   cur_var_name: (identifier) @variable
   "in" @keyword
 )
