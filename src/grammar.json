@@ -107,6 +107,14 @@
 				{
 					"type": "SYMBOL",
 					"name": "for_loop"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "break"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "continue"
 				}
 			]
 		},
@@ -376,6 +384,24 @@
 						"type": "SYMBOL",
 						"name": "block"
 					}
+				}
+			]
+		},
+		"break": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "break"
+				}
+			]
+		},
+		"continue": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "continue"
 				}
 			]
 		},
