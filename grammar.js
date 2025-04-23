@@ -48,7 +48,8 @@ module.exports = grammar({
 		// doc_comment: $ => seq("/*", $.doc_comment_content, "/"),
 		// doc_comment_content: _ => /[^*]*\*+([^/*][^*]*\*+)*/,
 
-		_line_insensitive_statement: $ => choice($.block, $.function_declaration, $.class_declaration, $.if_chain),
+		_line_insensitive_statement: $ =>
+			choice($.block, $.function_declaration, $.class_declaration, $.if_chain, $.for_loop),
 
 		statement: $ =>
 			choice($.expression, $.print, $.assert, $.return, $.assignment, $.import, $.var_decl, $.proto, $.return),
@@ -67,6 +68,9 @@ module.exports = grammar({
 				repeat(seq("elif", field("elif_condition", $.expression), field("elif_body", $.block))),
 				optional(seq("else", field("else_body", $.block))),
 			),
+
+		for_loop: $ =>
+			seq("for", field("cur_var_name", $.identifier), "in", field("iterator", $.expression), field("body", $.block)),
 
 		qualifier: _ => choice("static", "pure"),
 		qualifier_list: $ => repeat1($.qualifier),
