@@ -103,6 +103,10 @@
 				{
 					"type": "SYMBOL",
 					"name": "if_chain"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "for_loop"
 				}
 			]
 		},
@@ -335,6 +339,43 @@
 							"type": "BLANK"
 						}
 					]
+				}
+			]
+		},
+		"for_loop": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "for"
+				},
+				{
+					"type": "FIELD",
+					"name": "cur_var_name",
+					"content": {
+						"type": "SYMBOL",
+						"name": "identifier"
+					}
+				},
+				{
+					"type": "STRING",
+					"value": "in"
+				},
+				{
+					"type": "FIELD",
+					"name": "iterator",
+					"content": {
+						"type": "SYMBOL",
+						"name": "expression"
+					}
+				},
+				{
+					"type": "FIELD",
+					"name": "body",
+					"content": {
+						"type": "SYMBOL",
+						"name": "block"
+					}
 				}
 			]
 		},
@@ -1916,5 +1957,6 @@
 	"precedences": [],
 	"externals": [],
 	"inline": [],
-	"supertypes": []
+	"supertypes": [],
+	"reserved": {}
 }
