@@ -4,6 +4,7 @@ For loops
 
 for i in [1, 2, 3] {
 	print i
+	continue break
 }
 
 ---
@@ -24,6 +25,8 @@ for i in [1, 2, 3] {
 					msg: (expression (identifier))
 				)
 			)
+			body: (continue)
+			body: (break)
 		)
 	)
 )
