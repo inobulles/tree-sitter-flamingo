@@ -1,0 +1,29 @@
+===
+For loops
+===
+
+for i in [1, 2, 3] {
+	print i
+}
+
+---
+
+(source_file
+	(for_loop
+		cur_var_name: (identifier)
+		iterator: (expression
+			(vec
+				(expression (literal (number)))
+				(expression (literal (number)))
+				(expression (literal (number)))
+			)
+		)
+		body: (block
+			body: (statement
+				(print
+					msg: (expression (identifier))
+				)
+			)
+		)
+	)
+)
