@@ -30,36 +30,28 @@ class WithParameters(x: int, y) {
 
 (source_file
 	(class_declaration
-		(identifier)
-		(block)
+		name: (identifier)
+		body: (block)
 	)
 	(class_declaration
-		(identifier)
-		(block
-			(function_declaration
-				(identifier)
-				(block
-					(statement
+		name: (identifier)
+		body: (block
+			body: (function_declaration
+				name: (identifier)
+				body: (block
+					body: (statement
 						(print
-							(expression
-								(literal
-									(string)
-								)
-							)
+							msg: (expression (literal (string)))
 						)
 					)
 				)
 			)
-			(function_declaration
-				(identifier)
-				(block
-					(statement
+			body: (function_declaration
+				name: (identifier)
+				body: (block
+					body: (statement
 						(print
-							(expression
-								(literal
-									(string)
-								)
-							)
+							msg: (expression (literal (string)))
 						)
 					)
 				)
@@ -67,39 +59,29 @@ class WithParameters(x: int, y) {
 		)
 	)
 	(comment)
-	(class_declaration
-		(identifier)
-		(ERROR)
-		(block
-			(statement
+	(ERROR)
+	(function_declaration
+		name: (identifier)
+		body: (block
+			body: (statement
 				(print
-					(expression
-						(literal
-							(string)
-						)
-					)
+					msg: (expression (literal (string)))
 				)
 			)
 		)
 	)
 	(comment)
 	(class_declaration
-		(identifier)
-		(param_list
+		name: (identifier)
+		params: (param_list
 			(param
-				(identifier)
-				(type
-					(type_name
-						(identifier
-							(primitive_type)
-						)
-					)
-				)
+				ident: (identifier)
+				type: (type (type_name (identifier (primitive_type))))
 			)
 			(param
-				(identifier)
+				ident: (identifier)
 			)
 		)
-		(block)
+		body: (block)
 	)
 )
