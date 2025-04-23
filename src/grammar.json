@@ -388,22 +388,12 @@
 			]
 		},
 		"break": {
-			"type": "SEQ",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "break"
-				}
-			]
+			"type": "STRING",
+			"value": "break"
 		},
 		"continue": {
-			"type": "SEQ",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "continue"
-				}
-			]
+			"type": "STRING",
+			"value": "continue"
 		},
 		"qualifier": {
 			"type": "CHOICE",

@@ -219,11 +219,6 @@
 		"fields": {}
 	},
 	{
-		"type": "break",
-		"named": true,
-		"fields": {}
-	},
-	{
 		"type": "call",
 		"named": true,
 		"fields": {
@@ -287,11 +282,6 @@
 	},
 	{
 		"type": "comparative_operator",
-		"named": true,
-		"fields": {}
-	},
-	{
-		"type": "continue",
 		"named": true,
 		"fields": {}
 	},
@@ -1271,7 +1261,7 @@
 	},
 	{
 		"type": "break",
-		"named": false
+		"named": true
 	},
 	{
 		"type": "class",
@@ -1284,7 +1274,7 @@
 	},
 	{
 		"type": "continue",
-		"named": false
+		"named": true
 	},
 	{
 		"type": "doc_comment_content",

@@ -72,8 +72,8 @@ module.exports = grammar({
 		for_loop: $ =>
 			seq("for", field("cur_var_name", $.identifier), "in", field("iterator", $.expression), field("body", $.block)),
 
-		break: _ => seq("break"),
-		continue: _ => seq("continue"),
+		break: _ => "break",
+		continue: _ => "continue",
 
 		qualifier: _ => choice("static", "pure"),
 		qualifier_list: $ => repeat1($.qualifier),
