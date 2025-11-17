@@ -12,6 +12,7 @@
 ; Identifiers.
 
 (identifier) @variable
+(self) @constant.builtin
 
 ; Literals.
 
