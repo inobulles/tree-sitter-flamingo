@@ -117,6 +117,7 @@ module.exports = grammar({
 
 		expression: $ =>
 			choice(
+				$.self,
 				$.identifier,
 				$.literal,
 				$.call,
@@ -216,5 +217,6 @@ module.exports = grammar({
 		string: _ => /"([^"\\]|\\.)*"/,
 		bool: _ => choice("true", "false", "error"),
 		none: _ => "none",
+		self: _ => "self",
 	},
 })
