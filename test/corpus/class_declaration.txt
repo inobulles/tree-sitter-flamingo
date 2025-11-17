@@ -12,6 +12,7 @@ class SomeFunctions {
 
 	fn b {
 		print "in b"
+		return self
 	}
 }
 
@@ -52,6 +53,11 @@ class WithParameters(x: int, y) {
 					body: (statement
 						(print
 							msg: (expression (literal (string)))
+						)
+					)
+					body: (statement
+						(return
+							rv: (expression (self))
 						)
 					)
 				)
