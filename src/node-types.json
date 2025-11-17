@@ -288,6 +288,7 @@
 	{
 		"type": "doc_comment",
 		"named": true,
+		"extra": true,
 		"fields": {},
 		"children": {
 			"multiple": false,
@@ -342,6 +343,10 @@
 				},
 				{
 					"type": "parenthesized_expression",
+					"named": true
+				},
+				{
+					"type": "self",
 					"named": true
 				},
 				{
@@ -1355,6 +1360,10 @@
 	{
 		"type": "return",
 		"named": false
+	},
+	{
+		"type": "self",
+		"named": true
 	},
 	{
 		"type": "static",
